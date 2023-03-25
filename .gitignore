@@ -1,0 +1,12 @@
+# Temp
+*.swp
+
+# Object files
+*.o
+
+# Libraries
+*.a
+
+# Executables
+server
+client

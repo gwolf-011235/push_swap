@@ -6,11 +6,11 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:25:53 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 16:51:50 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 19:33:57 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "check_input.h"
 
 bool	ft_check_input(int argc, char **argv, uint32_t *count)
 {
@@ -31,7 +31,7 @@ bool	ft_check_input(int argc, char **argv, uint32_t *count)
 	return (true);
 }
 
-bool	ft_is_valid_num(char *str)
+static bool	ft_is_valid_num(char *str)
 {
 	int	i;
 
@@ -45,18 +45,4 @@ bool	ft_is_valid_num(char *str)
 	while (ft_isdigit(str[i]))
 		i++;
 	return (str[i] == ' ' || str[i] == '\0');
-}
-
-int	ft_move_like_atoi(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] == ' ')
-		i++;
-	if (str[i] == '-')
-		i++;
-	while (ft_isdigit(str[i]))
-		i++;
-	return (i);
 }

@@ -44,6 +44,7 @@ SRC :=  main.c \
 		parse_input.c \
 		utils_print.c \
 		utils_string.c \
+		ops.c \
 		terminate.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 

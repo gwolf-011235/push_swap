@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:25:53 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 09:50:32 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 15:34:36 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ bool	ft_check_input(int argc, char **argv, uint32_t *count)
 			if (i > 0)
 				(*count)++;
 			if (!ft_is_valid_num(&argv[argc][i]))
-			{
-				write(1, "Error\n", 6);
-				exit(0);
-			}
+				ft_terminate();
 			i += ft_move_like_atoi(&argv[argc][i]);
 		}
 	}

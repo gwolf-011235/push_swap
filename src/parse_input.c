@@ -6,38 +6,38 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 15:32:39 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 16:57:28 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_parse_input(t_stack *stack, int argc, char **argv)
+void	ft_parse_input(t_stacks *stacks, int argc, char **argv)
 {
-	ft_malloc_stack(stack);
-	ft_extract_nums(stack, argc, argv);
-	ft_print_stacks(stack);
-	ft_check_doubles(stack);
+	ft_malloc_stacks(stacks);
+	ft_extract_nums(stacks, argc, argv);
+	ft_print_stacks(stacks);
+	ft_check_doubles(stacks);
 }
 
-void	ft_malloc_stack(t_stack *stack)
+void	ft_malloc_stacks(t_stacks *stacks)
 {
-	stack->a = malloc(sizeof(int) * stack->nums + 1);
-	if (!stack->a)
+	stacks->a.array = malloc(sizeof(int) * stacks->nums + 1);
+	if (!stacks->a.array)
 		ft_terminate();
-	stack->b = malloc(sizeof(int) * stack->nums + 1);
-	if (!stack->b)
-		ft_free_and_terminate(stack);
-	ft_memset(stack->a, 0, (stack->nums + 1) * 4);
-	ft_memset(stack->b, 0, (stack->nums + 1) * 4);
+	stacks->b.array = malloc(sizeof(int) * stacks->nums + 1);
+	if (!stacks->b.array)
+		ft_free_and_terminate(stacks);
+	ft_memset(stacks->a.array, 0, (stacks->nums + 1) * sizeof(int));
+	ft_memset(stacks->b.array, 0, (stacks->nums + 1) * sizeof(int));
 }
 
-void	ft_extract_nums(t_stack *stack, int argc, char **argv)
+void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 {
 	uint32_t	i;
 	uint32_t	pos;
 
-	pos = stack->nums;
+	pos = stacks->nums;
 	while (argc-- > 1)
 	{
 		pos--;
@@ -46,27 +46,27 @@ void	ft_extract_nums(t_stack *stack, int argc, char **argv)
 		{
 			if (i > 0)
 				pos--;
-			stack->a[pos] = ft_atoi(&argv[argc][i]);
+			stacks->a.array[pos] = ft_atoi(&argv[argc][i]);
 			i += ft_move_like_atoi(&argv[argc][i]);
 		}
 	}
-	stack->a_count = stack->nums;
-	stack->b_count = 0;
+	stacks->a.size = stacks->nums;
+	stacks->b.size = 0;
 }
 
-void	ft_check_doubles(t_stack *stack)
+void	ft_check_doubles(t_stacks *stacks)
 {
 	uint32_t	i;
 	uint32_t	j;
 
 	i = 0;
-	while (i < stack->nums)
+	while (i < stacks->nums)
 	{
 		j = i + 1;
-		while (j < stack->nums)
+		while (j < stacks->nums)
 		{
-			if (stack->a[i] == stack->a[j])
-				ft_free_and_terminate(stack);
+			if (stacks->a.array[i] == stacks->a.array[j])
+				ft_free_and_terminate(stacks);
 			j++;
 		}
 		i++;

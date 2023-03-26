@@ -39,7 +39,8 @@ HIT_COUNT = $(eval HIT_N != expr ${HIT_N} + 1)${HIT_N}
 ECHO = printf "\033[2K\r[`expr ${HIT_COUNT} '*' 100 / ${HIT_TOTAL}`%%] %s"
 
 # source files
-SRC :=  push_swap.c
+SRC :=  main.c \
+		check_input.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 
 # objects
@@ -54,6 +55,9 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(OBJS)
 	$(COMPILE) $(OBJS) $(LIB_FT) -o $@
 	echo "$(GREEN)$(NAME) created!$(RESET)"
+
+debug: CFLAGS = -g
+debug: clean $(NAME)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)

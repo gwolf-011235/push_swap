@@ -40,7 +40,9 @@ ECHO = printf "\033[2K\r[`expr ${HIT_COUNT} '*' 100 / ${HIT_TOTAL}`%%] %s"
 
 # source files
 SRC :=  main.c \
-		check_input.c
+		check_input.c \
+		parse_input.c \
+		utils_print.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 
 # objects

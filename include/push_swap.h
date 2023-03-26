@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 09:38:17 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 10:15:55 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,22 @@
 
 # include "ft_print.h"
 
-bool	ft_check_input(int argc, char **argv, int *count);
+typedef struct	s_stack {
+	uint32_t	nums;
+	int			*a;
+	uint32_t	a_count;
+	int			*b;
+	uint32_t	b_count;
+}	t_stack;
+
+bool	ft_check_input(int argc, char **argv, uint32_t *count);
 bool	ft_is_valid_num(char *str);
 int		ft_move_like_atoi(char *str);
+
+void	ft_parse_input(t_stack *stack, int argc, char **argv);
+void	ft_malloc_stack(t_stack *stack);
+
+void	ft_print_stacks(t_stack *stack);
+
 
 #endif

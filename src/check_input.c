@@ -6,13 +6,13 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:25:53 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 09:40:14 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 09:50:32 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	ft_check_input(int argc, char **argv, int *count)
+bool	ft_check_input(int argc, char **argv, uint32_t *count)
 {
 	int	i;
 

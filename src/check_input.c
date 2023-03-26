@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:25:53 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 15:34:36 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 16:51:50 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ bool	ft_is_valid_num(char *str)
 		return (false);
 	while (ft_isdigit(str[i]))
 		i++;
-	if (str[i] == ' ' || str[i] == '\0')
-		return (true);
-	else
-		return (false);
+	return (str[i] == ' ' || str[i] == '\0');
 }
 
 int	ft_move_like_atoi(char *str)

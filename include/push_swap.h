@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 18:41:18 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 19:31:10 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ typedef struct	s_stacks {
 	t_stack		b;
 }	t_stacks;
 
-bool	ft_check_input(int argc, char **argv, uint32_t *count);
-bool	ft_is_valid_num(char *str);
-int		ft_move_like_atoi(char *str);
+//check_input.c
+bool		ft_check_input(int argc, char **argv, uint32_t *count);
 
-void	ft_parse_input(t_stacks *stacks, int argc, char **argv);
-void	ft_malloc_stacks(t_stacks *stacks);
-void	ft_extract_nums(t_stacks *stacks, int argc, char **argv);
-bool	ft_check_overflow(char *str);
-void	ft_check_doubles(t_stacks *stacks);
+//parse_input.c
+void		ft_parse_input(t_stacks *stacks, int argc, char **argv);
 
+//utils_print.c
 void	ft_print_stacks(t_stacks *stacks);
 
+//utils_string.c
+int		ft_move_like_atoi(char *str);
 
+//terminate.c
 void	ft_terminate(void);
 void	ft_free_and_terminate(t_stacks *stacks);
 

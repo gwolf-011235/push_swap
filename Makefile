@@ -59,6 +59,20 @@ $(NAME): $(LIBFT) $(OBJS)
 debug: CFLAGS = -g
 debug: clean $(NAME)
 
+test: $(NAME)
+	echo The following are valid:
+	./$(NAME) 1
+	./$(NAME) -2
+	./$(NAME) 1 -2 3
+	./$(NAME) 12345
+	./$(NAME) 12345 6789 12 345
+	echo
+	echo The following are error
+	./$(NAME) c 
+	./$(NAME) 1d -2 3
+	./$(NAME) 12 34a 456 58
+	./$(NAME) -12a 12 13
+
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 

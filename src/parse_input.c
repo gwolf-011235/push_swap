@@ -6,11 +6,11 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 19:18:54 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 19:34:07 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "parse_input.h"
 
 void	ft_parse_input(t_stacks *stacks, int argc, char **argv)
 {
@@ -20,7 +20,7 @@ void	ft_parse_input(t_stacks *stacks, int argc, char **argv)
 	ft_check_doubles(stacks);
 }
 
-void	ft_malloc_stacks(t_stacks *stacks)
+static void	ft_malloc_stacks(t_stacks *stacks)
 {
 	stacks->a.array = malloc(sizeof(int) * stacks->nums + 1);
 	if (!stacks->a.array)
@@ -32,7 +32,7 @@ void	ft_malloc_stacks(t_stacks *stacks)
 	ft_memset(stacks->b.array, 0, (stacks->nums + 1) * sizeof(int));
 }
 
-bool	ft_check_overflow(char *str)
+static bool	ft_check_overflow(char *str)
 {
 	int64_t		num;
 	uint32_t	len;
@@ -46,7 +46,7 @@ bool	ft_check_overflow(char *str)
 	return (false);
 }
 
-void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
+static void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 {
 	uint32_t	i;
 	uint32_t	pos;
@@ -70,7 +70,7 @@ void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 	stacks->b.size = 0;
 }
 
-void	ft_check_doubles(t_stacks *stacks)
+static void	ft_check_doubles(t_stacks *stacks)
 {
 	uint32_t	i;
 	uint32_t	j;

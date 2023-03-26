@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 10:15:44 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 10:47:03 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ int	main(int argc, char *argv[])
 		exit(0);
 	}
 	stack.nums = argc - 1;
-	if (ft_check_input(argc, argv, &stack.nums))
-	{
-		ft_printf("All nums are valid!\n");
-		ft_printf("This is count: %d\n", stack.nums);
-	}
+	ft_check_input(argc, argv, &stack.nums);
 	ft_parse_input(&stack, argc, argv);
 }

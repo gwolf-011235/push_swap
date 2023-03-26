@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 19:34:07 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 19:52:52 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_parse_input(t_stacks *stacks, int argc, char **argv)
 {
 	ft_malloc_stacks(stacks);
 	ft_extract_nums(stacks, argc, argv);
-	ft_print_stacks(stacks);
 	ft_check_doubles(stacks);
 }
 

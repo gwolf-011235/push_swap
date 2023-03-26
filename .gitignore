@@ -8,5 +8,4 @@
 *.a
 
 # Executables
-server
-client
+push_swap

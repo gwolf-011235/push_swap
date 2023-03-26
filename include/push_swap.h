@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 16:56:37 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 18:41:18 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_move_like_atoi(char *str);
 void	ft_parse_input(t_stacks *stacks, int argc, char **argv);
 void	ft_malloc_stacks(t_stacks *stacks);
 void	ft_extract_nums(t_stacks *stacks, int argc, char **argv);
+bool	ft_check_overflow(char *str);
 void	ft_check_doubles(t_stacks *stacks);
 
 void	ft_print_stacks(t_stacks *stacks);

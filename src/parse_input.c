@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 16:57:28 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/26 19:18:54 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ void	ft_malloc_stacks(t_stacks *stacks)
 	ft_memset(stacks->b.array, 0, (stacks->nums + 1) * sizeof(int));
 }
 
+bool	ft_check_overflow(char *str)
+{
+	int64_t		num;
+	uint32_t	len;
+
+	len = ft_move_like_atoi(str);
+	if ((str[0] != '-' && len > 10) || (str[0] == '-' && len > 11))
+		return (true);
+	num = ft_atoi(str);
+	if ((str[0] != '-' && num < 0) || (str[0] == '-' && num > 0))
+		return (true);
+	return (false);
+}
+
 void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 {
 	uint32_t	i;
@@ -44,6 +58,8 @@ void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 		i = 0;
 		while (argv[argc][i])
 		{
+			if (ft_check_overflow(&argv[argc][i]))
+				ft_free_and_terminate(stacks);
 			if (i > 0)
 				pos--;
 			stacks->a.array[pos] = ft_atoi(&argv[argc][i]);

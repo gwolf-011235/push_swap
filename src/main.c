@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 16:50:59 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/27 23:10:26 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ int	main(int argc, char *argv[])
 	stacks.nums = argc - 1;
 	ft_check_input(argc, argv, &stacks.nums);
 	ft_parse_input(&stacks, argc, argv);
+	ft_prep_input(&stacks);
+	ft_print_stacks(&stacks);
 }

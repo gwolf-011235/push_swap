@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 19:52:52 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/27 22:47:53 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ void	ft_parse_input(t_stacks *stacks, int argc, char **argv)
 
 static void	ft_malloc_stacks(t_stacks *stacks)
 {
-	stacks->a.array = malloc(sizeof(int) * stacks->nums + 1);
-	if (!stacks->a.array)
-		ft_terminate();
-	stacks->b.array = malloc(sizeof(int) * stacks->nums + 1);
-	if (!stacks->b.array)
+	stacks->a.array = malloc(sizeof(int32_t) * stacks->nums + 1);
+	stacks->b.array = malloc(sizeof(int32_t) * stacks->nums + 1);
+	stacks->store.key = malloc(sizeof(int32_t) * stacks->nums);
+	stacks->store.value = malloc(sizeof(int32_t) * stacks->nums);
+	if (!stacks->a.array || !stacks->b.array
+		|| !stacks->store.key || !stacks->store.value)
 		ft_free_and_terminate(stacks);
-	ft_memset(stacks->a.array, 0, (stacks->nums + 1) * sizeof(int));
-	ft_memset(stacks->b.array, 0, (stacks->nums + 1) * sizeof(int));
+	ft_memset(stacks->a.array, 0, (stacks->nums + 1) * sizeof(int32_t));
+	ft_memset(stacks->b.array, 0, (stacks->nums + 1) * sizeof(int32_t));
+	ft_memset(stacks->store.key, 0, stacks->nums * sizeof(int32_t));
 }
 
 static bool	ft_check_overflow(char *str)
@@ -61,12 +63,11 @@ static void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 				ft_free_and_terminate(stacks);
 			if (i > 0)
 				pos--;
-			stacks->a.array[pos] = ft_atoi(&argv[argc][i]);
+			stacks->store.value[pos] = ft_atoi(&argv[argc][i]);
 			i += ft_move_like_atoi(&argv[argc][i]);
 		}
 	}
-	stacks->a.size = stacks->nums;
-	stacks->b.size = 0;
+	stacks->store.size = stacks->nums;
 }
 
 static void	ft_check_doubles(t_stacks *stacks)
@@ -80,7 +81,7 @@ static void	ft_check_doubles(t_stacks *stacks)
 		j = i + 1;
 		while (j < stacks->nums)
 		{
-			if (stacks->a.array[i] == stacks->a.array[j])
+			if (stacks->store.value[i] == stacks->store.value[j])
 				ft_free_and_terminate(stacks);
 			j++;
 		}

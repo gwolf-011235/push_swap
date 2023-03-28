@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/28 19:52:48 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 00:28:51 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,17 @@
 
 # include "ft_print.h"
 
-# define A 0
-# define B 1
-# define BOTH 2
+# define SA 0
+# define SB 1
+# define SS 2
+# define PA 3
+# define PB 4
+# define RA 5
+# define RB 6
+# define RR 7
+# define RRA 8
+# define RRB 9
+# define RRR 10
 
 typedef struct	s_stack {
 	uint32_t	size;
@@ -57,11 +65,12 @@ void	ft_parse_input(t_stacks *stacks, int argc, char **argv);
 //prep_input.c
 void	ft_prep_input(t_stacks *stacks);
 
-//ops.c
-void	ft_swap(t_stacks *stacks, uint8_t option);
-void	ft_push(t_stacks *stacks, uint8_t option);
-void	ft_rotate(t_stacks *stacks, uint8_t option);
-void	ft_rev_rotate(t_stacks *stacks, uint8_t option);
+//moves.c
+void	ft_bust_a_move(uint8_t move, t_stacks *stacks);
+void	ft_swap(t_stack *stack);
+void	ft_push(t_stack *dst, t_stack *src);
+void	ft_rotate(t_stack *stack);
+void	ft_rev_rotate(t_stack *stack);
 
 //utils_print.c
 void	ft_print_stacks(t_stacks *stacks);
@@ -77,5 +86,9 @@ void	ft_free_and_terminate(t_stacks *stacks);
 void	ft_init_queue(t_queue *q);
 bool	ft_enqueue(t_queue *q, char *string);
 char	*ft_dequeue(t_queue *q);
+
+//logic.c
+char	*ft_ret_move_string(uint8_t move);
+
 
 #endif

@@ -45,7 +45,9 @@ SRC :=  main.c \
 		prep_input.c \
 		utils_print.c \
 		utils_string.c \
-		ops.c \
+		queue.c \
+		moves.c \
+		logic.c \
 		terminate.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 

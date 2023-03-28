@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/27 22:47:53 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 01:03:08 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_malloc_stacks(t_stacks *stacks)
 	stacks->store.value = malloc(sizeof(int32_t) * stacks->nums);
 	if (!stacks->a.array || !stacks->b.array
 		|| !stacks->store.key || !stacks->store.value)
-		ft_free_and_terminate(stacks);
+		ft_cleanup_and_exit(stacks, true);
 	ft_memset(stacks->a.array, 0, (stacks->nums + 1) * sizeof(int32_t));
 	ft_memset(stacks->b.array, 0, (stacks->nums + 1) * sizeof(int32_t));
 	ft_memset(stacks->store.key, 0, stacks->nums * sizeof(int32_t));
@@ -60,7 +60,7 @@ static void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 		while (argv[argc][i])
 		{
 			if (ft_check_overflow(&argv[argc][i]))
-				ft_free_and_terminate(stacks);
+				ft_cleanup_and_exit(stacks, true);
 			if (i > 0)
 				pos--;
 			stacks->store.value[pos] = ft_atoi(&argv[argc][i]);
@@ -82,7 +82,7 @@ static void	ft_check_doubles(t_stacks *stacks)
 		while (j < stacks->nums)
 		{
 			if (stacks->store.value[i] == stacks->store.value[j])
-				ft_free_and_terminate(stacks);
+				ft_cleanup_and_exit(stacks, true);
 			j++;
 		}
 		i++;

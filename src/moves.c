@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:37:50 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 00:34:13 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 01:03:32 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_bust_a_move(uint8_t move, t_stacks *stacks)
 	else if (move == RRB)
 		ft_rev_rotate(&stacks->b);
 	if (!ft_enqueue(&stacks->moves, ft_ret_move_string(move)))
-		ft_free_and_terminate(stacks);
+		ft_cleanup_and_exit(stacks, true);
 }
 
 void	ft_swap(t_stack *stack)

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 00:28:51 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 01:01:51 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		ft_move_like_atoi(char *str);
 
 //terminate.c
 void	ft_terminate(void);
-void	ft_free_and_terminate(t_stacks *stacks);
+void	ft_cleanup_and_exit(t_stacks *stacks, bool error);
 
 //queue.c
 void	ft_init_queue(t_queue *q);
@@ -89,6 +89,7 @@ char	*ft_dequeue(t_queue *q);
 
 //logic.c
 char	*ft_ret_move_string(uint8_t move);
+bool	ft_is_sorted(t_stack *stack);
 
 
 #endif

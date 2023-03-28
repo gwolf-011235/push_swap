@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/27 23:10:26 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 01:02:20 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ int	main(int argc, char *argv[])
 	ft_parse_input(&stacks, argc, argv);
 	ft_prep_input(&stacks);
 	ft_print_stacks(&stacks);
+	if (ft_is_sorted(&stacks.a))
+		ft_cleanup_and_exit(&stacks, false);
 }

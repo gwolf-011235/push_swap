@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:27:13 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/27 22:36:38 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 01:01:36 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_terminate(void)
 	exit(1);
 }
 
-void	ft_free_and_terminate(t_stacks *stacks)
+void	ft_cleanup_and_exit(t_stacks *stacks, bool error)
 {
 	if (stacks->a.array)
 		free(stacks->a.array);
@@ -28,5 +28,10 @@ void	ft_free_and_terminate(t_stacks *stacks)
 		free(stacks->store.key);
 	if (stacks->store.value)
 		free(stacks->store.value);
-	ft_terminate();
+	if (error)
+		ft_terminate();
+	else
+		exit(0);
 }
+
+

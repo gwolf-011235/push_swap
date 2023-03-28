@@ -6,11 +6,25 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 00:04:45 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 00:22:12 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 00:56:23 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	ft_is_sorted(t_stack *stack)
+{
+	uint32_t	i;
+
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		if (stack->array[i + 1] < stack->array[i])
+			return (false);
+		i++;
+	}
+	return (true);
+}
 
 char	*ft_ret_move_string(uint8_t move)
 {

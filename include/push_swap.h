@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/27 23:10:06 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/28 19:52:48 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,22 @@ typedef struct	s_store {
 	int32_t		*value;
 }	t_store;
 
+typedef struct	s_node {
+	char			*string;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_queue {
+	t_node	*head;
+	t_node	*tail;
+}	t_queue;
+
 typedef struct	s_stacks {
 	uint32_t	nums;
 	t_stack		a;
 	t_stack		b;
 	t_store		store;
+	t_queue		moves;
 }	t_stacks;
 
 //check_input.c
@@ -61,5 +72,10 @@ int		ft_move_like_atoi(char *str);
 //terminate.c
 void	ft_terminate(void);
 void	ft_free_and_terminate(t_stacks *stacks);
+
+//queue.c
+void	ft_init_queue(t_queue *q);
+bool	ft_enqueue(t_queue *q, char *string);
+char	*ft_dequeue(t_queue *q);
 
 #endif

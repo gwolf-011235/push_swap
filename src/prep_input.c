@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 22:40:37 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/27 23:12:00 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 00:44:25 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,15 @@ static uint32_t	ft_find_next_max(t_store *store, uint32_t nums)
 	uint32_t	cur_max_i;
 	uint32_t	i;
 
-	cur_max = store->value[0];
-	cur_max_i = 0;
+	i = 0;
+	while (i < nums)
+	{
+		cur_max = store->value[i];
+		cur_max_i = i;
+		if (store->key[i] == 0)
+			break ;
+		i++;
+	}
 	i = 0;
 	while (i < nums)
 	{

@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:56:24 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/30 15:12:55 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/30 17:55:40 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,9 @@ void	ft_sort_three(t_stacks *stacks)
 		else
 			ft_bust_a_move(RA, stacks);
 	}
+}
+
+void	ft_sort_four(t_stacks *stacks)
+{
+	
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 01:02:20 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/30 14:11:45 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stacks stacks;
+	static t_stacks	stacks;
 
 	if (argc == 1)
 	{
@@ -28,5 +28,15 @@ int	main(int argc, char *argv[])
 	ft_prep_input(&stacks);
 	ft_print_stacks(&stacks);
 	if (ft_is_sorted(&stacks.a))
-		ft_cleanup_and_exit(&stacks, false);
+	{
+		ft_printf("Everything sorted\n\n");
+		ft_print_stacks(&stacks);
+	}
+	else if (stacks.nums <= 5)
+	{
+		ft_printf("Starting simple_sort\n\n");
+		ft_sort_simple(&stacks);
+		ft_print_stacks(&stacks);
+	}
+	ft_cleanup_and_exit(&stacks, false);
 }

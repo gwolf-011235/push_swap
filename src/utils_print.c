@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:05:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/30 14:11:20 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/30 14:19:05 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,17 @@ void	ft_print_stacks(t_stacks *stacks)
 	ft_printf("Sum of integers: %d\n", stacks->nums);
 	ft_printf("Integers in stack a: %d\n", stacks->a.size);
 	ft_printf("Integers in stack b: %d\n\n", stacks->b.size);
+}
+
+void	ft_print_moves(t_queue *moves)
+{
+	char	*string;
+
+	if (moves->head == NULL)
+		return ;
+	while (moves->head)
+	{
+		string = ft_dequeue(moves);
+		ft_printf("%s", string);
+	}
 }

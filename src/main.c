@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/30 14:11:45 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/30 14:21:38 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,12 @@ int	main(int argc, char *argv[])
 	if (ft_is_sorted(&stacks.a))
 	{
 		ft_printf("Everything sorted\n\n");
-		ft_print_stacks(&stacks);
 	}
 	else if (stacks.nums <= 5)
 	{
 		ft_printf("Starting simple_sort\n\n");
 		ft_sort_simple(&stacks);
-		ft_print_stacks(&stacks);
 	}
+	ft_print_moves(&stacks.moves);
 	ft_cleanup_and_exit(&stacks, false);
 }

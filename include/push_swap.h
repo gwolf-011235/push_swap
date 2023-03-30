@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/30 14:08:47 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/30 14:19:23 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	ft_rev_rotate(t_stack *stack);
 
 //utils_print.c
 void	ft_print_stacks(t_stacks *stacks);
+void	ft_print_moves(t_queue *moves);
 
 //utils_string.c
 int		ft_move_like_atoi(char *str);

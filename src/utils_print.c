@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:05:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 20:20:59 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/30 14:11:20 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	ft_print_stacks(t_stacks *stacks)
 	ft_printf("\t_____\t_____\n\t  a  \t  b\n\n");
 	ft_printf("Sum of integers: %d\n", stacks->nums);
 	ft_printf("Integers in stack a: %d\n", stacks->a.size);
-	ft_printf("Integers in stack b: %d\n", stacks->b.size);
+	ft_printf("Integers in stack b: %d\n\n", stacks->b.size);
 }

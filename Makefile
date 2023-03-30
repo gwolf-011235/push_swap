@@ -59,6 +59,7 @@ OBJS := $(addprefix $(OBJ_DIR)/, $(OBJ))
 .SILENT:
 
 all: $(NAME)
+	echo "$(GREEN)ALL DONE!$(RESET)"
 
 $(NAME): $(LIBFT) $(OBJS)
 	$(COMPILE) $(OBJS) $(LIB_FT) -o $@

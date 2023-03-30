@@ -6,13 +6,13 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:25:53 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/26 19:33:57 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/29 16:50:22 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check_input.h"
 
-bool	ft_check_input(int argc, char **argv, uint32_t *count)
+bool	ft_check_input(int argc, char **argv, uint32_t *nums)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ bool	ft_check_input(int argc, char **argv, uint32_t *count)
 		while (argv[argc][i])
 		{
 			if (i > 0)
-				(*count)++;
+				(*nums)++;
 			if (!ft_is_valid_num(&argv[argc][i]))
 				ft_terminate();
 			i += ft_move_like_atoi(&argv[argc][i]);

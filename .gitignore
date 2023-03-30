@@ -1,6 +1,7 @@
 # Temp
 *.swp
 *.gdb_history
+.vscode
 
 # Object files
 *.o

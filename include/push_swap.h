@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 01:01:51 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/30 14:08:47 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,13 @@ void	ft_init_queue(t_queue *q);
 bool	ft_enqueue(t_queue *q, char *string);
 char	*ft_dequeue(t_queue *q);
 
+//sort_simple.c
+void	ft_sort_simple(t_stacks *stacks);
+void	ft_sort_two(t_stacks *stacks);
+void	ft_sort_three(t_stacks *stacks);
+
 //logic.c
 char	*ft_ret_move_string(uint8_t move);
 bool	ft_is_sorted(t_stack *stack);
-
 
 #endif

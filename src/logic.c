@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logic.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
+/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 00:04:45 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 00:56:23 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/31 09:15:02 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	ft_is_sorted(t_stack *stack)
 	return (true);
 }
 
-char	*ft_ret_move_string(uint8_t move)
+char	*ft_return_move_string(uint8_t move)
 {
 	if (move == SA)
 		return ("sa\n");

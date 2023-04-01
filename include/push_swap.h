@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/31 14:12:50 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 12:02:19 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct s_queue {
 
 typedef struct s_stacks {
 	uint32_t	nums;
+	uint32_t	cur_half;
+	uint32_t	divide_count;
 	t_stack		a;
 	t_stack		b;
 	t_store		store;
@@ -94,7 +96,7 @@ bool		ft_enqueue(t_queue *q, char *string);
 char		*ft_dequeue(t_queue *q);
 
 //sort_simple.c
-void		ft_sort_simple(t_stacks *stacks);
+void		ft_simple_sort(t_stacks *stacks);
 void		ft_sort_two(t_stacks *stacks);
 void		ft_sort_three(t_stacks *stacks);
 void		ft_sort_four(t_stacks *stacks);

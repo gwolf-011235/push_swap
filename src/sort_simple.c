@@ -6,13 +6,13 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:56:24 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 11:37:10 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 12:02:24 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_simple(t_stacks *stacks)
+void	ft_simple_sort(t_stacks *stacks)
 {
 	if (stacks->nums == 2)
 		ft_sort_two(stacks);

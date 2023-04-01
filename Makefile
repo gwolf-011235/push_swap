@@ -59,13 +59,20 @@ SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ := $(SRC:.c=.o)
 OBJS := $(addprefix $(OBJ_DIR)/, $(OBJ))
 
+# headers
+HEADER := 	push_swap.h \
+			check_input.h \
+			parse_input.h \
+			prep_input.h	
+HEADERS := $(addprefix $(INC_DIR)/, $(HEADER))
+
 .PHONY: all, clean, fclean, re, debug, bonus, re_bonus
 .SILENT:
 
 all: $(NAME)
 	echo "$(GREEN)ALL DONE!$(RESET)"
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(OBJS) $(HEADERS)
 	$(COMPILE) $(OBJS) $(LIB_FT) -o $@
 	echo "$(GREEN)$(NAME) created!$(RESET)"
 

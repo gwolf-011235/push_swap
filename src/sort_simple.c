@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:56:24 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/30 17:55:40 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/31 14:13:47 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void	ft_sort_simple(t_stacks *stacks)
 		ft_sort_two(stacks);
 	else if (stacks->nums == 3)
 		ft_sort_three(stacks);
+	else if (stacks->nums == 4)
+		ft_sort_four(stacks);
+	else if (stacks->nums == 5)
+		ft_sort_five(stacks);
 }
 
 void	ft_sort_two(t_stacks *stacks)
@@ -57,5 +61,19 @@ void	ft_sort_three(t_stacks *stacks)
 
 void	ft_sort_four(t_stacks *stacks)
 {
-	
+	ft_rotate_to_top(A, stacks, 1);
+	ft_bust_a_move(PB, stacks);
+	ft_sort_three(stacks);
+	ft_bust_a_move(PA, stacks);
+}
+
+void	ft_sort_five(t_stacks *stacks)
+{
+	ft_rotate_to_top(A, stacks, 1);
+	ft_bust_a_move(PB, stacks);
+	ft_rotate_to_top(A, stacks, 2);
+	ft_bust_a_move(PB, stacks);
+	ft_sort_three(stacks);
+	ft_bust_a_move(PA, stacks);
+	ft_bust_a_move(PB, stacks);
 }

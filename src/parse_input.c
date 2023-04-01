@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 11:28:13 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 11:44:20 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	ft_parse_input(t_stacks *stacks, int argc, char **argv)
 
 static void	ft_malloc_stacks(t_stacks *stacks)
 {
-	stacks->a.array = malloc(sizeof(int32_t) * stacks->nums + 1);
-	stacks->b.array = malloc(sizeof(int32_t) * stacks->nums + 1);
-	stacks->store.key = malloc(sizeof(int32_t) * stacks->nums);
-	stacks->store.value = malloc(sizeof(int32_t) * stacks->nums);
+	stacks->a.array = malloc((stacks->nums + 1) * sizeof(int32_t));
+	stacks->b.array = malloc((stacks->nums + 1) * sizeof(int32_t));
+	stacks->store.key = malloc(stacks->nums * sizeof(int32_t));
+	stacks->store.value = malloc(stacks->nums * sizeof(int32_t));
 	if (!stacks->a.array || !stacks->b.array
 		|| !stacks->store.key || !stacks->store.value)
 		ft_cleanup_and_exit(stacks, true);

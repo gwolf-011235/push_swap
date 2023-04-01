@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 14:06:03 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 15:22:15 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_stacks {
 	uint32_t	nums;
 	uint32_t	cur_half;
 	uint32_t	divide_count;
+	uint32_t	min;
 	t_stack		a;
 	t_stack		b;
 	t_store		store;

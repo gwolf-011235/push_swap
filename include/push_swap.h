@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/31 09:14:52 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/03/31 14:12:50 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "ft_print.h"
 
+# define A 0
+# define B 1
 # define SA 0
 # define SB 1
 # define SS 2
@@ -80,6 +82,7 @@ int			ft_move_like_atoi(char *str);
 
 //utils_sort.c
 uint32_t	ft_search_from_top(t_stack *stack, uint32_t num);
+bool		ft_rotate_to_top(uint8_t name, t_stacks *stacks, uint32_t num);
 
 //terminate.c
 void		ft_terminate(void);
@@ -94,6 +97,8 @@ char		*ft_dequeue(t_queue *q);
 void		ft_sort_simple(t_stacks *stacks);
 void		ft_sort_two(t_stacks *stacks);
 void		ft_sort_three(t_stacks *stacks);
+void		ft_sort_four(t_stacks *stacks);
+void		ft_sort_five(t_stacks *stacks);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

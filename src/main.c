@@ -6,12 +6,11 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 12:04:10 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 14:10:33 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	main(int argc, char *argv[])
 {
@@ -35,6 +34,10 @@ int	main(int argc, char *argv[])
 	{
 		ft_printf("Starting simple_sort\n\n");
 		ft_simple_sort(&stacks);
+	}
+	else
+	{
+		ft_quick_sort(&stacks);
 	}
 	ft_print_moves(&stacks.moves);
 	ft_cleanup_and_exit(&stacks, false);

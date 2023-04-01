@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 12:02:19 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 14:06:03 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,10 @@ void		ft_sort_two(t_stacks *stacks);
 void		ft_sort_three(t_stacks *stacks);
 void		ft_sort_four(t_stacks *stacks);
 void		ft_sort_five(t_stacks *stacks);
+
+//sort_quick.c
+void		ft_quick_sort(t_stacks *stacks);
+void		ft_split_a(t_stacks *stacks);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

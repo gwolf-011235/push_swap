@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:05:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/30 15:12:53 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 15:01:55 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_print_stacks(t_stacks *stacks)
 	temp_a = stacks->a.size;
 	temp_b = stacks->b.size;
 	ft_printf("The stacks are\n\n");
-	while (i < stacks->nums)
+	while (temp_a > 0 || temp_b > 0)
 	{
 		if (temp_a > 0 && temp_b > 0)
 			ft_printf("\t%5d\t%5d", stacks->a.array[i], stacks->b.array[i]);

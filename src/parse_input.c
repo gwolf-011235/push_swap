@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
+/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 01:03:08 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/01 11:28:13 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,23 @@ static bool	ft_check_overflow(char *str)
 static void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 {
 	uint32_t	i;
+	int32_t		arg;
 	uint32_t	pos;
 
-	pos = stacks->nums;
-	while (argc-- > 1)
+	arg = 0;
+	pos = -1;
+	while (++arg < argc)
 	{
-		pos--;
+		pos++;
 		i = 0;
-		while (argv[argc][i])
+		while (argv[arg][i])
 		{
-			if (ft_check_overflow(&argv[argc][i]))
+			if (ft_check_overflow(&argv[arg][i]))
 				ft_cleanup_and_exit(stacks, true);
 			if (i > 0)
-				pos--;
-			stacks->store.value[pos] = ft_atoi(&argv[argc][i]);
-			i += ft_move_like_atoi(&argv[argc][i]);
+				pos++;
+			stacks->store.value[pos] = ft_atoi(&argv[arg][i]);
+			i += ft_move_like_atoi(&argv[arg][i]);
 		}
 	}
 	stacks->store.size = stacks->nums;

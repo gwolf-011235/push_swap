@@ -25,7 +25,7 @@ INC := -I $(INC_DIR) -I lib/libft/include
 LIB_FT := -L $(LIB_DIR_FT) -l ft 
 
 # compiling
-CC := clang
+CC := cc
 CFLAGS = -Wall -Werror -Wextra
 COMPILE = $(CC) $(CFLAGS) $(INC)
 

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/02 22:20:29 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/03 22:32:06 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int			ft_move_like_atoi(char *str);
 //utils_sort.c
 uint32_t	ft_search_from_top(t_stack *stack, uint32_t num);
 bool		ft_rotate_to_top(uint8_t name, t_stacks *stacks, uint32_t num);
+bool		ft_rotate_to_bottom(uint8_t name, t_stacks *stacks, uint32_t num);
 uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
 uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
 

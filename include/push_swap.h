@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/03 22:32:06 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/03 22:52:59 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,13 @@ void		ft_sort_five(t_stacks *stacks);
 //sort_quick.c
 void		ft_quick_sort(t_stacks *stacks);
 void		ft_split_a(t_stacks *stacks);
+
+//sort_insertion.c
+void    ft_insertion_sort(t_stacks *stacks);
+bool    ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
+uint32_t    ft_count_rotate_top(uint32_t pos, t_stack *stack);
+uint32_t    ft_count_rotate_bottom(uint32_t pos, t_stack *stack);
+void    ft_rotate_and_push(t_stacks *stacks, uint32_t num, t_stack *dst, t_stack *src);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

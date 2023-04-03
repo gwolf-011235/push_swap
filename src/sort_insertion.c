@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:04:00 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/03 22:18:28 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/03 22:32:20 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void    ft_rotate_and_push(t_stacks *stacks, uint32_t num, t_stack *dst, t_stack
         ft_rotate_to_top(B, stacks, higher);
         ft_bust_a_move(PB, stacks);
     }
+    (void)src;
 }
 
 void    ft_insertion_sort(t_stacks *stacks)
 {
     t_chunk chunk;
-    uint32_t    i;
 
     chunk.size = 20;
     chunk.min = 0;
@@ -63,7 +63,7 @@ void    ft_insertion_sort(t_stacks *stacks)
     chunk.pushed = 0;
     while(chunk.pushed < chunk.size)
     {
-        while (!ft_is_elem_of_chunk(stacks->a.array[0]))
+        while (!ft_is_elem_of_chunk(stacks->a.array[0], &chunk))
             ft_bust_a_move(RA, stacks);
         if (chunk.pushed == 0)
         {
@@ -72,7 +72,7 @@ void    ft_insertion_sort(t_stacks *stacks)
         }
         else
         {
-            ft_rotate_and_push(stacks);
+            ft_rotate_and_push(stacks, stacks->a.array[0], &stacks->b, &stacks->a);
         }
     }
 }

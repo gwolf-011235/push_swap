@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 15:22:15 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/02 22:20:29 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ typedef struct s_queue {
 	t_node	*tail;
 }	t_queue;
 
+typedef struct s_chunk {
+	uint32_t	size;
+	uint32_t	min;
+	uint32_t	max;
+	uint32_t	pushed;
+}	t_chunk;
+
 typedef struct s_stacks {
 	uint32_t	nums;
 	uint32_t	cur_half;
@@ -86,6 +93,9 @@ int			ft_move_like_atoi(char *str);
 //utils_sort.c
 uint32_t	ft_search_from_top(t_stack *stack, uint32_t num);
 bool		ft_rotate_to_top(uint8_t name, t_stacks *stacks, uint32_t num);
+uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
+uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
+
 
 //terminate.c
 void		ft_terminate(void);

@@ -48,6 +48,7 @@ SRC :=  main.c \
 		prep_input.c \
 		sort_quick.c \
 		sort_simple.c \
+		sort_insertion \
 		utils_print.c \
 		utils_string.c \
 		utils_sort.c \

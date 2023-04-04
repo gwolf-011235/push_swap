@@ -75,7 +75,7 @@ bool	ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num)
 		move[1] = RRB;
 	}
 	position = ft_search_from_top(stack, num);
-	if (position == 0)
+	if (position == 0 && stack->size <= 1)
 		return (false);
 	if (position < (stack->size / 2))
 		ft_bust_some_moves(move[0], data, position + 1);
@@ -89,15 +89,18 @@ uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack)
 	uint32_t	neighbor;
 	uint32_t	i;
 
-	neighbor = target;
+	neighbor = UINT_MAX;
 	i = 0;
 	while (i < stack->size)
 	{
-		if (stack->array[i] > neighbor)
+		if (stack->array[i] > target && stack->array[i] < neighbor)
 			neighbor = stack->array[i];
 		i++;
 	}
-	return (neighbor);
+	if (neighbor == UINT_MAX)
+		return (target);
+	else
+		return (neighbor);
 }
 
 uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack)
@@ -105,13 +108,16 @@ uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack)
 	uint32_t	neighbor;
 	uint32_t	i;
 
-	neighbor = target;
+	neighbor = 0;
 	i = 0;
 	while (i < stack->size)
 	{
-		if (stack->array[i] < neighbor)
+		if (stack->array[i] < target && stack->array[i] > neighbor)
 			neighbor = stack->array[i];
 		i++;
 	}
-	return (neighbor);
+	if (neighbor == 0)
+		return (target);
+	else
+		return (neighbor);
 }

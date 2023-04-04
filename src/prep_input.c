@@ -12,26 +12,26 @@
 
 #include "prep_input.h"
 
-void	ft_prep_input(t_stacks *stacks)
+void	ft_prep_input(t_data *data)
 {
-	ft_assign_keys(stacks);
-	ft_memcpy(stacks->a.array, stacks->store.key, sizeof(int32_t) * stacks->nums);
-	stacks->a.size = stacks->nums;
-	stacks->b.size = 0;
+	ft_assign_keys(data);
+	ft_memcpy(data->a.array, data->store.key, sizeof(int32_t) * data->nums);
+	data->a.size = data->nums;
+	data->b.size = 0;
 }
 
-static void	ft_assign_keys(t_stacks *stacks)
+static void	ft_assign_keys(t_data *data)
 {
 	uint32_t	next_key;
 	uint32_t	next_index;
 	uint32_t	i;
 
-	next_key = stacks->nums;
+	next_key = data->nums;
 	i = 0;
-	while (i < stacks->nums)
+	while (i < data->nums)
 	{
-		next_index = ft_find_next_max(&stacks->store, stacks->nums);
-		stacks->store.key[next_index] = next_key;
+		next_index = ft_find_next_max(&data->store, data->nums);
+		data->store.key[next_index] = next_key;
 		next_key--;
 		i++;
 	}

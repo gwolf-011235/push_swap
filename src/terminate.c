@@ -18,16 +18,16 @@ void	ft_terminate(void)
 	exit(1);
 }
 
-void	ft_cleanup_and_exit(t_stacks *stacks, bool error)
+void	ft_cleanup_and_exit(t_data *data, bool error)
 {
-	if (stacks->a.array)
-		free(stacks->a.array);
-	if (stacks->b.array)
-		free(stacks->b.array);
-	if (stacks->store.key)
-		free(stacks->store.key);
-	if (stacks->store.value)
-		free(stacks->store.value);
+	if (data->a.array)
+		free(data->a.array);
+	if (data->b.array)
+		free(data->b.array);
+	if (data->store.key)
+		free(data->store.key);
+	if (data->store.value)
+		free(data->store.value);
 	if (error)
 		ft_terminate();
 	else

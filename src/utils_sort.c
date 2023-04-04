@@ -28,7 +28,7 @@ uint32_t	ft_search_from_top(t_stack *stack, uint32_t num)
 	return (ret);
 }
 
-bool	ft_rotate_to_top(uint8_t name, t_stacks *stacks, uint32_t num)
+bool	ft_rotate_to_top(uint8_t name, t_data *data, uint32_t num)
 {
 	uint32_t	position;
 	t_stack		*stack;
@@ -36,13 +36,13 @@ bool	ft_rotate_to_top(uint8_t name, t_stacks *stacks, uint32_t num)
 
 	if (name == A)
 	{
-		stack = &stacks->a;
+		stack = &data->a;
 		move[0] = RA;
 		move[1] = RRA;
 	}
 	else
 	{
-		stack = &stacks->b;
+		stack = &data->b;
 		move[0] = RB;
 		move[1] = RRB;
 	}
@@ -50,13 +50,13 @@ bool	ft_rotate_to_top(uint8_t name, t_stacks *stacks, uint32_t num)
 	if (position == 0)
 		return (false);
 	if (position < (stack->size / 2))
-		ft_bust_some_moves(move[0], stacks, position);
+		ft_bust_some_moves(move[0], data, position);
 	else
-		ft_bust_some_moves(move[1], stacks, stack->size - position);
+		ft_bust_some_moves(move[1], data, stack->size - position);
 	return (true);
 }
 
-bool	ft_rotate_to_bottom(uint8_t name, t_stacks *stacks, uint32_t num)
+bool	ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num)
 {
 	uint32_t	position;
 	t_stack		*stack;
@@ -64,13 +64,13 @@ bool	ft_rotate_to_bottom(uint8_t name, t_stacks *stacks, uint32_t num)
 
 	if (name == A)
 	{
-		stack = &stacks->a;
+		stack = &data->a;
 		move[0] = RA;
 		move[1] = RRA;
 	}
 	else
 	{
-		stack = &stacks->b;
+		stack = &data->b;
 		move[0] = RB;
 		move[1] = RRB;
 	}
@@ -78,9 +78,9 @@ bool	ft_rotate_to_bottom(uint8_t name, t_stacks *stacks, uint32_t num)
 	if (position == 0)
 		return (false);
 	if (position < (stack->size / 2))
-		ft_bust_some_moves(move[0], stacks, position + 1);
+		ft_bust_some_moves(move[0], data, position + 1);
 	else
-		ft_bust_some_moves(move[1], stacks, stack->size - position - 1);
+		ft_bust_some_moves(move[1], data, stack->size - position - 1);
 	return (true);
 }
 

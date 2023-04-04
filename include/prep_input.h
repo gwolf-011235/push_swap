@@ -15,8 +15,8 @@
 
 # include "push_swap.h"
 
-void			ft_prep_input(t_stacks *stacks);
-static void		ft_assign_keys(t_stacks *stacks);
+void			ft_prep_input(t_data *data);
+static void		ft_assign_keys(t_data *data);
 static uint32_t	ft_find_next_max(t_store *store, uint32_t nums);
 
 #endif

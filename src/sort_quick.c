@@ -12,29 +12,29 @@
 
 #include "push_swap.h"
 
-void	ft_quick_sort(t_stacks *stacks)
+void	ft_quick_sort(t_data *data)
 {
-	stacks->cur_half = stacks->nums / 2;
-	stacks->divide_count = 1;
-	stacks->min = 1;
-	ft_split_a(stacks);
+	data->cur_half = data->nums / 2;
+	data->divide_count = 1;
+	data->min = 1;
+	ft_split_a(data);
 
 }
 
-void	ft_split_a(t_stacks *stacks)
+void	ft_split_a(t_data *data)
 {
 	uint32_t	i;
 	uint32_t	temp_size;
 
 	i = 0;
-	temp_size = stacks->a.size;
+	temp_size = data->a.size;
 	while (i < temp_size)
 	{
-		if (stacks->a.array[0] <= stacks->cur_half)
-			ft_bust_a_move(PB, stacks);
+		if (data->a.array[0] <= data->cur_half)
+			ft_bust_a_move(PB, data);
 		else
-			ft_bust_a_move(RA, stacks);
+			ft_bust_a_move(RA, data);
 		i++;
 	}
-	ft_print_stacks(stacks);
+	ft_print_stacks(data);
 }

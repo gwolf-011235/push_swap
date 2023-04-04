@@ -12,25 +12,25 @@
 
 #include "parse_input.h"
 
-void	ft_parse_input(t_stacks *stacks, int argc, char **argv)
+void	ft_parse_input(t_data *data, int argc, char **argv)
 {
-	ft_malloc_stacks(stacks);
-	ft_extract_nums(stacks, argc, argv);
-	ft_check_doubles(stacks);
+	ft_malloc_stacks(data);
+	ft_extract_nums(data, argc, argv);
+	ft_check_doubles(data);
 }
 
-static void	ft_malloc_stacks(t_stacks *stacks)
+static void	ft_malloc_stacks(t_data *data)
 {
-	stacks->a.array = malloc((stacks->nums + 1) * sizeof(int32_t));
-	stacks->b.array = malloc((stacks->nums + 1) * sizeof(int32_t));
-	stacks->store.key = malloc(stacks->nums * sizeof(int32_t));
-	stacks->store.value = malloc(stacks->nums * sizeof(int32_t));
-	if (!stacks->a.array || !stacks->b.array
-		|| !stacks->store.key || !stacks->store.value)
-		ft_cleanup_and_exit(stacks, true);
-	ft_memset(stacks->a.array, 0, (stacks->nums + 1) * sizeof(int32_t));
-	ft_memset(stacks->b.array, 0, (stacks->nums + 1) * sizeof(int32_t));
-	ft_memset(stacks->store.key, 0, stacks->nums * sizeof(int32_t));
+	data->a.array = malloc((data->nums + 1) * sizeof(int32_t));
+	data->b.array = malloc((data->nums + 1) * sizeof(int32_t));
+	data->store.key = malloc(data->nums * sizeof(int32_t));
+	data->store.value = malloc(data->nums * sizeof(int32_t));
+	if (!data->a.array || !data->b.array
+		|| !data->store.key || !data->store.value)
+		ft_cleanup_and_exit(data, true);
+	ft_memset(data->a.array, 0, (data->nums + 1) * sizeof(int32_t));
+	ft_memset(data->b.array, 0, (data->nums + 1) * sizeof(int32_t));
+	ft_memset(data->store.key, 0, data->nums * sizeof(int32_t));
 }
 
 static bool	ft_check_overflow(char *str)
@@ -47,7 +47,7 @@ static bool	ft_check_overflow(char *str)
 	return (false);
 }
 
-static void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
+static void	ft_extract_nums(t_data *data, int argc, char **argv)
 {
 	uint32_t	i;
 	int32_t		arg;
@@ -62,29 +62,29 @@ static void	ft_extract_nums(t_stacks *stacks, int argc, char **argv)
 		while (argv[arg][i])
 		{
 			if (ft_check_overflow(&argv[arg][i]))
-				ft_cleanup_and_exit(stacks, true);
+				ft_cleanup_and_exit(data, true);
 			if (i > 0)
 				pos++;
-			stacks->store.value[pos] = ft_atoi(&argv[arg][i]);
+			data->store.value[pos] = ft_atoi(&argv[arg][i]);
 			i += ft_move_like_atoi(&argv[arg][i]);
 		}
 	}
-	stacks->store.size = stacks->nums;
+	data->store.size = data->nums;
 }
 
-static void	ft_check_doubles(t_stacks *stacks)
+static void	ft_check_doubles(t_data *data)
 {
 	uint32_t	i;
 	uint32_t	j;
 
 	i = 0;
-	while (i < stacks->nums)
+	while (i < data->nums)
 	{
 		j = i + 1;
-		while (j < stacks->nums)
+		while (j < data->nums)
 		{
-			if (stacks->store.value[i] == stacks->store.value[j])
-				ft_cleanup_and_exit(stacks, true);
+			if (data->store.value[i] == data->store.value[j])
+				ft_cleanup_and_exit(data, true);
 			j++;
 		}
 		i++;

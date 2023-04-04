@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_insertion.c                                   :+:      :+:    :+:   */
+/*   sort_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwolf <gwolf@student.42vienna.com >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:04:00 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/03 22:32:20 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/03 23:03:07 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ uint32_t    ft_count_rotate_bottom(uint32_t pos, t_stack *stack)
         return (pos + 1);
 }
 
-void    ft_rotate_and_push(t_stacks *stacks, uint32_t num, t_stack *dst, t_stack *src)
+void    ft_rotate_and_push(t_data *data, uint32_t num, t_stack *dst, t_stack *src)
 {
     uint32_t    higher;
     uint32_t    lower;
@@ -42,18 +42,18 @@ void    ft_rotate_and_push(t_stacks *stacks, uint32_t num, t_stack *dst, t_stack
     lower = ft_find_lower_neighbor(num, dst);
     if (higher == num)
     {
-        ft_rotate_to_bottom(B, stacks, lower);
-        ft_bust_a_move(PB, stacks);
+        ft_rotate_to_bottom(B, data, lower);
+        ft_bust_a_move(PB, data);
     }
     else if (lower == num)
     {
-        ft_rotate_to_top(B, stacks, higher);
-        ft_bust_a_move(PB, stacks);
+        ft_rotate_to_top(B, data, higher);
+        ft_bust_a_move(PB, data);
     }
     (void)src;
 }
 
-void    ft_insertion_sort(t_stacks *stacks)
+void    ft_insertion_sort(t_data *data)
 {
     t_chunk chunk;
 
@@ -63,16 +63,16 @@ void    ft_insertion_sort(t_stacks *stacks)
     chunk.pushed = 0;
     while(chunk.pushed < chunk.size)
     {
-        while (!ft_is_elem_of_chunk(stacks->a.array[0], &chunk))
-            ft_bust_a_move(RA, stacks);
+        while (!ft_is_elem_of_chunk(data->a.array[0], &chunk))
+            ft_bust_a_move(RA, data);
         if (chunk.pushed == 0)
         {
-            ft_bust_a_move(PB, stacks);
+            ft_bust_a_move(PB, data);
             chunk.pushed++;
         }
         else
         {
-            ft_rotate_and_push(stacks, stacks->a.array[0], &stacks->b, &stacks->a);
+            ft_rotate_and_push(data, data->a.array[0], &data->b, &data->a);
         }
     }
 }

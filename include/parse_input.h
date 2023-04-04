@@ -15,10 +15,10 @@
 
 # include "push_swap.h"
 
-void		ft_parse_input(t_stacks *stacks, int argc, char **argv);
-static void	ft_malloc_stacks(t_stacks *stacks);
-static void	ft_extract_nums(t_stacks *stacks, int argc, char **argv);
+void		ft_parse_input(t_data *data, int argc, char **argv);
+static void	ft_malloc_stacks(t_data *data);
+static void	ft_extract_nums(t_data *data, int argc, char **argv);
 static bool	ft_check_overflow(char *str);
-static void	ft_check_doubles(t_stacks *stacks);
+static void	ft_check_doubles(t_data *data);
 
 #endif

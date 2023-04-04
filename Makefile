@@ -39,7 +39,7 @@ HIT_COUNT = $(eval HIT_N != expr ${HIT_N} + 1)${HIT_N}
 ECHO = printf "\033[2K\r[`expr ${HIT_COUNT} '*' 100 / ${HIT_TOTAL}`%%] %s"
 
 # source files
-SRC :=  main.c \
+SRC :=	main.c \
 		check_input.c \
 		do_move.c \
 		logic.c \
@@ -48,7 +48,7 @@ SRC :=  main.c \
 		prep_input.c \
 		sort_quick.c \
 		sort_simple.c \
-		sort_insertion \
+		sort_insertion.c \
 		utils_print.c \
 		utils_string.c \
 		utils_sort.c \

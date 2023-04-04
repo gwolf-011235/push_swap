@@ -57,7 +57,7 @@ typedef struct s_chunk {
 	uint32_t	pushed;
 }	t_chunk;
 
-typedef struct s_stacks {
+typedef struct s_data {
 	uint32_t	nums;
 	uint32_t	cur_half;
 	uint32_t	divide_count;
@@ -66,16 +66,16 @@ typedef struct s_stacks {
 	t_stack		b;
 	t_store		store;
 	t_queue		moves;
-}	t_stacks;
+}	t_data;
 
 //check_input.c
 bool		ft_check_input(int argc, char **argv, uint32_t *count);
 
 //parse_input.c
-void		ft_parse_input(t_stacks *stacks, int argc, char **argv);
+void		ft_parse_input(t_data *data, int argc, char **argv);
 
 //prep_input.c
-void		ft_prep_input(t_stacks *stacks);
+void		ft_prep_input(t_data *data);
 
 //moves.c
 void		ft_swap(t_stack *stack);
@@ -84,7 +84,7 @@ void		ft_rotate(t_stack *stack);
 void		ft_rev_rotate(t_stack *stack);
 
 //utils_print.c
-void		ft_print_stacks(t_stacks *stacks);
+void		ft_print_stacks(t_data *data);
 void		ft_print_moves(t_queue *moves);
 
 //utils_string.c
@@ -92,15 +92,15 @@ int			ft_move_like_atoi(char *str);
 
 //utils_sort.c
 uint32_t	ft_search_from_top(t_stack *stack, uint32_t num);
-bool		ft_rotate_to_top(uint8_t name, t_stacks *stacks, uint32_t num);
-bool		ft_rotate_to_bottom(uint8_t name, t_stacks *stacks, uint32_t num);
+bool		ft_rotate_to_top(uint8_t name, t_data *data, uint32_t num);
+bool		ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num);
 uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
 uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
 
 
 //terminate.c
 void		ft_terminate(void);
-void		ft_cleanup_and_exit(t_stacks *stacks, bool error);
+void		ft_cleanup_and_exit(t_data *data, bool error);
 
 //queue.c
 void		ft_init_queue(t_queue *q);
@@ -108,29 +108,29 @@ bool		ft_enqueue(t_queue *q, char *string);
 char		*ft_dequeue(t_queue *q);
 
 //sort_simple.c
-void		ft_simple_sort(t_stacks *stacks);
-void		ft_sort_two(t_stacks *stacks);
-void		ft_sort_three(t_stacks *stacks);
-void		ft_sort_four(t_stacks *stacks);
-void		ft_sort_five(t_stacks *stacks);
+void		ft_simple_sort(t_data *data);
+void		ft_sort_two(t_data *data);
+void		ft_sort_three(t_data *data);
+void		ft_sort_four(t_data *data);
+void		ft_sort_five(t_data *data);
 
 //sort_quick.c
-void		ft_quick_sort(t_stacks *stacks);
-void		ft_split_a(t_stacks *stacks);
+void		ft_quick_sort(t_data *data);
+void		ft_split_a(t_data *data);
 
 //sort_insertion.c
-void    ft_insertion_sort(t_stacks *stacks);
+void    ft_insertion_sort(t_data *data);
 bool    ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
 uint32_t    ft_count_rotate_top(uint32_t pos, t_stack *stack);
 uint32_t    ft_count_rotate_bottom(uint32_t pos, t_stack *stack);
-void    ft_rotate_and_push(t_stacks *stacks, uint32_t num, t_stack *dst, t_stack *src);
+void    ft_rotate_and_push(t_data *data, uint32_t num, t_stack *dst, t_stack *src);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);
 bool		ft_is_sorted(t_stack *stack);
 
 //do_move.c
-void		ft_bust_a_move(uint8_t move, t_stacks *stacks);
-void		ft_bust_some_moves(uint8_t move, t_stacks *stacks, uint32_t repeat);
+void		ft_bust_a_move(uint8_t move, t_data *data);
+void		ft_bust_some_moves(uint8_t move, t_data *data, uint32_t repeat);
 
 #endif

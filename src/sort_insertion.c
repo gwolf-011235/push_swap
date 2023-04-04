@@ -17,29 +17,35 @@ bool    ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk)
     return (num >= chunk->min && num <= chunk->max);
 }
 
-uint32_t    ft_count_rotate_top(uint32_t pos, t_stack *stack)
+uint32_t    ft_count_rot_top(uint32_t num, t_stack *stack)
 {
+	uint32_t	pos;
+
+	pos = ft_search_from_top(stack, num);
     if (pos > (stack->size / 2))
         return (stack->size - pos + 1);
     else
         return (pos);
 }
 
-uint32_t    ft_count_rotate_bottom(uint32_t pos, t_stack *stack)
+uint32_t    ft_count_rot_bot(uint32_t num, t_stack *stack)
 {
+    uint32_t	pos;
+
+    pos = ft_search_from_top(stack, num);
     if (pos > (stack->size / 2))
         return (stack->size - pos);
     else
         return (pos + 1);
 }
 
-void    ft_rotate_and_push(t_data *data, uint32_t num, t_stack *dst, t_stack *src)
+void    ft_rot_and_push_b(uint32_t num, t_data *data)
 {
     uint32_t    higher;
     uint32_t    lower;
 
-    higher = ft_find_higher_neighbor(num, dst);
-    lower = ft_find_lower_neighbor(num, dst);
+    higher = ft_find_higher_neighbor(num, &data->b);
+    lower = ft_find_lower_neighbor(num, &data->b);
     if (higher == num)
     {
         ft_rotate_to_bottom(B, data, lower);
@@ -48,7 +54,7 @@ void    ft_rotate_and_push(t_data *data, uint32_t num, t_stack *dst, t_stack *sr
     {
         ft_rotate_to_top(B, data, higher);
     }
-    else if (ft_count_rotate_top(higher, dst) < ft_count_rotate_bottom(lower, dst))
+    else if (ft_count_rot_top(higher, &data->b) < ft_count_rot_bot(lower, &data->b))
     {
 	ft_rotate_to_top(B, data, higher);
     }
@@ -63,9 +69,9 @@ void    ft_insertion_sort(t_data *data)
 {
     t_chunk chunk;
 
-    chunk.size = 20;
-    chunk.min = 0;
-    chunk.max = 19;
+    chunk.size = data->a.size;
+    chunk.min = 1;
+    chunk.max = data->a.size;
     chunk.pushed = 0;
     while(chunk.pushed < chunk.size)
     {
@@ -77,7 +83,7 @@ void    ft_insertion_sort(t_data *data)
         }
         else
         {
-            ft_rotate_and_push(data, data->a.array[0], &data->b, &data->a);
+            ft_rot_and_push_b(data->a.array[0], data);
         }
         chunk.pushed++;
     }

@@ -40,5 +40,6 @@ int	main(int argc, char *argv[])
 		ft_insertion_sort(&data);
 	}
 	ft_print_moves(&data.moves);
+	ft_print_stacks(&data);
 	ft_cleanup_and_exit(&data, false);
 }

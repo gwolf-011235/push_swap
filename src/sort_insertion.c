@@ -43,14 +43,20 @@ void    ft_rotate_and_push(t_data *data, uint32_t num, t_stack *dst, t_stack *sr
     if (higher == num)
     {
         ft_rotate_to_bottom(B, data, lower);
-        ft_bust_a_move(PB, data);
     }
     else if (lower == num)
     {
         ft_rotate_to_top(B, data, higher);
-        ft_bust_a_move(PB, data);
     }
-    (void)src;
+    else if (ft_count_rotate_top(higher, dst) < ft_count_rotate_bottom(lower, dst))
+    {
+	ft_rotate_to_top(B, data, higher);
+    }
+    else
+    {
+	ft_rotate_to_bottom(B, data, higher);
+    }
+    ft_bust_a_move(PB, data);
 }
 
 void    ft_insertion_sort(t_data *data)
@@ -68,12 +74,12 @@ void    ft_insertion_sort(t_data *data)
         if (chunk.pushed == 0)
         {
             ft_bust_a_move(PB, data);
-            chunk.pushed++;
         }
         else
         {
             ft_rotate_and_push(data, data->a.array[0], &data->b, &data->a);
         }
+        chunk.pushed++;
     }
 }
 

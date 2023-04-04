@@ -119,11 +119,11 @@ void		ft_quick_sort(t_data *data);
 void		ft_split_a(t_data *data);
 
 //sort_insertion.c
-void    ft_insertion_sort(t_data *data);
-bool    ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
-uint32_t    ft_count_rotate_top(uint32_t pos, t_stack *stack);
-uint32_t    ft_count_rotate_bottom(uint32_t pos, t_stack *stack);
-void    ft_rotate_and_push(t_data *data, uint32_t num, t_stack *dst, t_stack *src);
+void    	ft_insertion_sort(t_data *data);
+bool  		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
+uint32_t    	ft_count_rot_top(uint32_t pos, t_stack *stack);
+uint32_t  	ft_count_rot_bot(uint32_t pos, t_stack *stack);
+void  		ft_rot_and_push_b(uint32_t num, t_data *data);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

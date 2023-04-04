@@ -60,7 +60,7 @@ void    ft_rot_and_push_b(uint32_t num, t_data *data)
     }
     else
     {
-	ft_rotate_to_bottom(B, data, higher);
+	ft_rotate_to_bottom(B, data, lower);
     }
     ft_bust_a_move(PB, data);
 }

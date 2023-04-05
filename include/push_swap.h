@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf <gwolf@student.42vienna.com >        +#+  +:+       +#+        */
+/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/03 22:52:59 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/05 17:38:23 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define RRA 8
 # define RRB 9
 # define RRR 10
+
+# define DIV 3
 
 typedef struct s_stack {
 	uint32_t	size;
@@ -66,6 +68,7 @@ typedef struct s_data {
 	t_stack		b;
 	t_store		store;
 	t_queue		moves;
+	t_chunk		*chunks;
 }	t_data;
 
 //check_input.c
@@ -97,7 +100,6 @@ bool		ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num);
 uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
 uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
 
-
 //terminate.c
 void		ft_terminate(void);
 void		ft_cleanup_and_exit(t_data *data, bool error);
@@ -119,11 +121,11 @@ void		ft_quick_sort(t_data *data);
 void		ft_split_a(t_data *data);
 
 //sort_insertion.c
-void    	ft_insertion_sort(t_data *data);
-bool  		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
-uint32_t    	ft_count_rot_top(uint32_t pos, t_stack *stack);
-uint32_t  	ft_count_rot_bot(uint32_t pos, t_stack *stack);
-void  		ft_rot_and_push_b(uint32_t num, t_data *data);
+void		ft_insertion_sort(t_data *data);
+bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
+uint32_t	ft_count_rot_top(uint32_t pos, t_stack *stack);
+uint32_t	ft_count_rot_bot(uint32_t pos, t_stack *stack);
+void		ft_rot_and_push_b(uint32_t num, t_data *data);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

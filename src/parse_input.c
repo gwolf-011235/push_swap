@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 11:44:20 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/05 17:21:08 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ static void	ft_malloc_stacks(t_data *data)
 	data->b.array = malloc((data->nums + 1) * sizeof(int32_t));
 	data->store.key = malloc(data->nums * sizeof(int32_t));
 	data->store.value = malloc(data->nums * sizeof(int32_t));
+	data->chunks = malloc(DIV * sizeof(t_chunk));
 	if (!data->a.array || !data->b.array
-		|| !data->store.key || !data->store.value)
+		|| !data->store.key || !data->store.value
+		|| !data->chunks)
 		ft_cleanup_and_exit(data, true);
 	ft_memset(data->a.array, 0, (data->nums + 1) * sizeof(int32_t));
 	ft_memset(data->b.array, 0, (data->nums + 1) * sizeof(int32_t));

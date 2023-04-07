@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/05 17:38:23 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/07 09:10:36 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ typedef struct s_chunk {
 
 typedef struct s_data {
 	uint32_t	nums;
-	uint32_t	cur_half;
-	uint32_t	divide_count;
-	uint32_t	min;
+	uint32_t	div;
 	t_stack		a;
 	t_stack		b;
 	t_store		store;
@@ -126,6 +124,7 @@ bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
 uint32_t	ft_count_rot_top(uint32_t pos, t_stack *stack);
 uint32_t	ft_count_rot_bot(uint32_t pos, t_stack *stack);
 void		ft_rot_and_push_b(uint32_t num, t_data *data);
+void		ft_prep_chunks(t_data *data);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

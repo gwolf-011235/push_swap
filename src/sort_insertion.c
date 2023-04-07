@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:04:00 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/05 17:50:22 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/07 09:54:54 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 
 void	ft_prep_chunks(t_data *data)
 {
-	uint32_t	div;
+	uint32_t	size;
 	uint32_t	i;
 
-	div = DIV;
+	size = data->nums / data->div;
 	i = 1;
 	data->chunks[0].min = 1;
-	data->chunks[0].max = data->nums / div;
-	data->chunks[0].size = data->nums / div;
-	while (i < (div - 1))
+	data->chunks[0].max = size;
+	data->chunks[0].size = size;
+	while (i < (data->div - 1))
 	{
-		data->chunks[i].min = data->chunks[i - 1].min;
-		data->chunks[i].max = data->nums / div * (i + 1);
+		data->chunks[i].min = data->chunks[i - 1].max + 1;
+		data->chunks[i].max = size * (i + 1);
+		data->chunks[i].size = size;
+		i++;
 	}
+	data->chunks[i].min = data->chunks[i - 1].max + 1;
+	data->chunks[i].max = data->nums;
+	data->chunks[i].size = size + (data->nums % data->div);
 }
 
 bool	ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk)
@@ -74,7 +79,7 @@ void	ft_rot_and_push_b(uint32_t num, t_data *data)
 	else if (ft_count_rot_top(higher, &data->b)
 		< ft_count_rot_bot(lower, &data->b))
 	{
-		ft__rotate_to_top(B, data, higher);
+		ft_rotate_to_top(B, data, higher);
 	}
 	else
 	{

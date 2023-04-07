@@ -17,6 +17,7 @@ OBJ_DIR_B := obj/bonus
 LIB_DIR := lib
 LIB_DIR_FT := $(LIB_DIR)/libft
 INC_DIR := include
+TEST_DIR := tests
 
 # include
 INC := -I $(INC_DIR) -I lib/libft/include
@@ -26,7 +27,7 @@ LIB_FT := -L $(LIB_DIR_FT) -l ft
 
 # compiling
 CC := cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g
 COMPILE = $(CC) $(CFLAGS) $(INC)
 
 # targets
@@ -46,7 +47,6 @@ SRC :=	main.c \
 		moves.c \
 		parse_input.c \
 		prep_input.c \
-		sort_quick.c \
 		sort_simple.c \
 		sort_insertion.c \
 		utils_print.c \
@@ -67,9 +67,14 @@ HEADER := 	push_swap.h \
 			prep_input.h	
 HEADERS := $(addprefix $(INC_DIR)/, $(HEADER))
 
+# tests
+TESTS = $(wildcard $(TEST_DIR)/*.c)
+TESTBINS = $(patsubst $(TEST_DIR)/%.c, $(TEST_DIR)/bin/%, $(TESTS))
+
 .PHONY: all, clean, fclean, re, debug, bonus, re_bonus
 .SILENT:
 
+all: CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 	echo "$(GREEN)ALL DONE!$(RESET)"
 
@@ -77,25 +82,11 @@ $(NAME): $(LIBFT) $(OBJS) $(HEADERS)
 	$(COMPILE) $(OBJS) $(LIB_FT) -o $@
 	echo "$(GREEN)$(NAME) created!$(RESET)"
 
-debug: CFLAGS = -g
-debug: clean $(NAME)
-
-test: $(NAME)
-	echo The following are valid:
-	./$(NAME) 1
-	./$(NAME) -2
-	./$(NAME) 1 -2 3
-	./$(NAME) 12345
-	./$(NAME) 12345 6789 12 345
-	echo
-	echo The following are error
-	./$(NAME) c 
-	./$(NAME) 1d -2 3
-	./$(NAME) 12 34a 456 58
-	./$(NAME) -12a 12 13
+debug: $(NAME)
+	echo "$(GREEN)DEBUG ready!$(RESET)"
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	mkdir -p $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) message
 	$(COMPILE) -c $< -o $@
@@ -103,6 +94,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) message
 message:
 	printf "$(YELLOW)$(BOLD)compilation$(RESET) [$(BLUE)push_swap$(RESET)]\n"
 
+$(TEST_DIR)/bin/%: $(TEST_DIR)/%.c | $(OBJS)
+	$(COMPILE) $< $(OBJS) $(LIB_FT) -o $@ -lcriterion
+
+$(TEST_DIR)/bin:
+	mkdir -p $@
+
+test: $(LIBFT) $(TEST_DIR)/bin $(TESTBINS)
+	for test in $(TESTBINS) ; do ./$$test ; done
 
 $(LIBFT):
 	printf "$(YELLOW)$(BOLD)compilation$(RESET) [$(BLUE)libft$(RESET)]\n"
@@ -122,4 +121,3 @@ fclean: clean
 re: fclean all
 	
 re_bonus: fclean bonus
-

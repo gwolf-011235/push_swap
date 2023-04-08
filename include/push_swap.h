@@ -6,7 +6,7 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 15:34:26 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:21:11 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@
 # define RRA 8
 # define RRB 9
 # define RRR 10
-
-# define DIV 3
 
 # define RESET "\033[0m"
 # define GREEN "\033[32m"
@@ -106,6 +104,13 @@ bool		ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num);
 uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
 uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
 
+//utils_sort2.c
+uint32_t	ft_find_next_above_in_chunk(uint32_t target, t_stack *stack,
+				t_chunk *chunk);
+uint32_t	ft_find_next_below_in_chunk(uint32_t target, t_stack *stack,
+				t_chunk *chunk);
+
+
 //terminate.c
 void		ft_terminate(void);
 void		ft_cleanup_and_exit(t_data *data, bool error);
@@ -132,10 +137,10 @@ void		ft_presort_chunks(t_data *data);
 
 //sort_insertion.c
 void		ft_insertion_sort(t_data *data, t_chunk *chunk);
-bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
 uint32_t	ft_count_rot_top(uint32_t pos, t_stack *stack);
 uint32_t	ft_count_rot_bot(uint32_t pos, t_stack *stack);
-void		ft_rot_and_push_b(uint32_t num, t_data *data);
+void		ft_rot_and_push_b(uint32_t num, t_data *data, t_chunk *chunk);
+void		ft_sort_complex(t_data *data);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

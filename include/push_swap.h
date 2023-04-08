@@ -6,13 +6,15 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/07 09:10:36 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 07:47:29 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <fcntl.h>
+# include "ft_fd.h"
 # include "ft_print.h"
 
 # define A 0
@@ -30,6 +32,11 @@
 # define RRR 10
 
 # define DIV 3
+
+# define RESET "\033[0m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define RED "\033[31m"
 
 typedef struct s_stack {
 	uint32_t	size;
@@ -57,6 +64,7 @@ typedef struct s_chunk {
 	uint32_t	min;
 	uint32_t	max;
 	uint32_t	pushed;
+	uint32_t	bounds[2];
 }	t_chunk;
 
 typedef struct s_data {
@@ -114,17 +122,14 @@ void		ft_sort_three(t_data *data);
 void		ft_sort_four(t_data *data);
 void		ft_sort_five(t_data *data);
 
-//sort_quick.c
-void		ft_quick_sort(t_data *data);
-void		ft_split_a(t_data *data);
-
 //sort_insertion.c
-void		ft_insertion_sort(t_data *data);
+void		ft_insertion_sort(t_data *data, t_chunk *chunk);
 bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
 uint32_t	ft_count_rot_top(uint32_t pos, t_stack *stack);
 uint32_t	ft_count_rot_bot(uint32_t pos, t_stack *stack);
 void		ft_rot_and_push_b(uint32_t num, t_data *data);
 void		ft_prep_chunks(t_data *data);
+void	ft_presort_chunks(t_data *data);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

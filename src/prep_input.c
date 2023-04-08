@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prep_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 22:40:37 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:20:49 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:45:44 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,6 @@ void	ft_prep_input(t_data *data)
 	ft_memcpy(data->a.array, data->store.key, sizeof(int32_t) * data->nums);
 	data->a.size = data->nums;
 	data->b.size = 0;
-	ft_set_div(data);
-}
-
-static void	ft_set_div(t_data *data)
-{
-	if (data->nums >= 100)
-		data->div = 3;
-	else if (data->nums >= 500)
-		data->div = 7;
-	else
-		data->div = 1;
 }
 
 static void	ft_assign_keys(t_data *data)

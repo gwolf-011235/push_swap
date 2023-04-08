@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/05 17:21:08 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:47:35 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,29 @@
 
 void	ft_parse_input(t_data *data, int argc, char **argv)
 {
-	ft_malloc_stacks(data);
+	ft_set_div(data);
+	ft_malloc_all_the_things(data);
 	ft_extract_nums(data, argc, argv);
 	ft_check_doubles(data);
 }
 
-static void	ft_malloc_stacks(t_data *data)
+static void	ft_set_div(t_data *data)
+{
+	if (data->nums >= 100)
+		data->div = 3;
+	else if (data->nums >= 500)
+		data->div = 7;
+	else
+		data->div = 1;
+}
+
+static void	ft_malloc_all_the_things(t_data *data)
 {
 	data->a.array = malloc((data->nums + 1) * sizeof(int32_t));
 	data->b.array = malloc((data->nums + 1) * sizeof(int32_t));
 	data->store.key = malloc(data->nums * sizeof(int32_t));
 	data->store.value = malloc(data->nums * sizeof(int32_t));
-	data->chunks = malloc(DIV * sizeof(t_chunk));
+	data->chunks = malloc(data->div * sizeof(t_chunk));
 	if (!data->a.array || !data->b.array
 		|| !data->store.key || !data->store.value
 		|| !data->chunks)
@@ -33,20 +44,6 @@ static void	ft_malloc_stacks(t_data *data)
 	ft_memset(data->a.array, 0, (data->nums + 1) * sizeof(int32_t));
 	ft_memset(data->b.array, 0, (data->nums + 1) * sizeof(int32_t));
 	ft_memset(data->store.key, 0, data->nums * sizeof(int32_t));
-}
-
-static bool	ft_check_overflow(char *str)
-{
-	int64_t		num;
-	uint32_t	len;
-
-	len = ft_move_like_atoi(str);
-	if ((str[0] != '-' && len > 10) || (str[0] == '-' && len > 11))
-		return (true);
-	num = ft_atoi(str);
-	if ((str[0] != '-' && num < 0) || (str[0] == '-' && num > 0))
-		return (true);
-	return (false);
 }
 
 static void	ft_extract_nums(t_data *data, int argc, char **argv)

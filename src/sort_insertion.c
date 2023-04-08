@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   sort_insertion.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:04:00 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:17:11 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 19:18:39 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-uint32_t	ft_count_rot_top(uint32_t num, t_stack *stack)
+int32_t	ft_count_rot_top(uint32_t num, t_stack *stack)
 {
-	uint32_t	pos;
+	uint32_t	index;
 
-	pos = ft_search_from_top(stack, num);
-	if (pos > (stack->size / 2))
-		return (stack->size - pos + 1);
+	index = ft_search_from_top(stack, num);
+	if (index < (stack->size / 2))
+		return (index);
 	else
-		return (pos);
+		return ((stack->size - index + 1) * -1);
 }
 
-uint32_t	ft_count_rot_bot(uint32_t num, t_stack *stack)
+int32_t	ft_count_rot_bot(uint32_t num, t_stack *stack)
 {
-	uint32_t	pos;
+	uint32_t	index;
 
-	pos = ft_search_from_top(stack, num);
-	if (pos > (stack->size / 2))
-		return (stack->size - pos);
+	index = ft_search_from_top(stack, num);
+	if (index < (stack->size / 2))
+		return (index +1);
 	else
-		return (pos + 1);
+		return ((stack->size - index) * -1);
 }
 
 void	ft_rot_and_push_b(uint32_t num, t_data *data, t_chunk *chunk)
@@ -49,8 +49,8 @@ void	ft_rot_and_push_b(uint32_t num, t_data *data, t_chunk *chunk)
 	{
 		ft_rotate_to_bottom(B, data, higher);
 	}
-	else if (ft_count_rot_top(higher, &data->b)
-		< ft_count_rot_bot(lower, &data->b))
+	else if (ft_abs(ft_count_rot_top(higher, &data->b))
+		< ft_abs(ft_count_rot_bot(lower, &data->b)))
 	{
 		ft_rotate_to_bottom(B, data, higher);
 	}
@@ -76,12 +76,4 @@ void	ft_insertion_sort(t_data *data, t_chunk *chunk)
 		}
 		chunk->pushed++;
 	}
-}
-
-void	ft_sort_complex(t_data *data)
-{
-	ft_prep_chunks(data);
-	ft_presort_chunks(data);
-	ft_insertion_sort(data, &data->chunks[data->div - 1]);
-	ft_rotate_to_top(B, data, data->chunks[data->div - 1].max);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 16:55:45 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:03:18 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 19:06:55 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,11 @@ uint32_t	ft_find_next_below_in_chunk(uint32_t target, t_stack *stack,
 		return (target);
 	else
 		return (neighbor);
+}
+
+int32_t	ft_abs(int32_t num)
+{
+	if (num < 0)
+		num *= -1;
+	return (num);
 }

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:44:32 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 00:05:25 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # define A 0
 # define B 1
+# define SUM 2
+
 # define SA 0
 # define SB 1
 # define SS 2
@@ -75,6 +77,14 @@ typedef struct s_data {
 	t_chunk		*chunks;
 }	t_data;
 
+typedef struct s_next {
+	int32_t	index;
+	int32_t	cost;
+	int32_t	temp;
+	int32_t	target;
+	bool	top;
+}	t_next;
+
 //check_input.c
 bool		ft_check_input(int argc, char **argv, uint32_t *count);
 
@@ -110,7 +120,7 @@ uint32_t	ft_find_next_above_in_chunk(uint32_t target, t_stack *stack,
 				t_chunk *chunk);
 uint32_t	ft_find_next_below_in_chunk(uint32_t target, t_stack *stack,
 				t_chunk *chunk);
-
+int32_t		ft_abs(int32_t num);
 
 //terminate.c
 void		ft_terminate(void);
@@ -128,6 +138,10 @@ void		ft_sort_three(t_data *data);
 void		ft_sort_four(t_data *data);
 void		ft_sort_five(t_data *data);
 
+//sort_complex.c
+void		ft_sort_complex(t_data *data);
+void		ft_exec_next_move(t_data *data, t_next *move);
+
 //sort_chunks.c
 void		ft_prep_chunks(t_data *data);
 bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
@@ -135,13 +149,17 @@ void		ft_chunk_update_bounds(t_data *data, t_chunk *chunk);
 void		ft_chunk_prep_push(t_data *data, t_chunk *chunk, t_chunk *two);
 void		ft_presort_chunks(t_data *data);
 
-
 //sort_insertion.c
 void		ft_insertion_sort(t_data *data, t_chunk *chunk);
-uint32_t	ft_count_rot_top(uint32_t pos, t_stack *stack);
-uint32_t	ft_count_rot_bot(uint32_t pos, t_stack *stack);
+int32_t		ft_count_rot_top(uint32_t num, t_stack *stack);
+int32_t		ft_count_rot_bot(uint32_t num, t_stack *stack);
 void		ft_rot_and_push_b(uint32_t num, t_data *data, t_chunk *chunk);
-void		ft_sort_complex(t_data *data);
+
+//sort_next_move.c
+t_next		ft_calc_next_move(t_data *data);
+int32_t		ft_calc_insert_cost(uint32_t num, t_stack *stack, t_next *move);
+int32_t		ft_calc_sum_cost(int32_t cost_a, int32_t cost_b);
+void		ft_update_next_move(t_next *move, int32_t cost_sum, uint32_t i);
 
 //logic.c
 char		*ft_return_move_string(uint8_t move);

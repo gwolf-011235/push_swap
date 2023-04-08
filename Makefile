@@ -53,6 +53,7 @@ SRC :=	main.c \
 		utils_print.c \
 		utils_string.c \
 		utils_sort.c \
+		utils_sort2.c \
 		queue.c \
 		terminate.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))

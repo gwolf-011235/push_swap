@@ -48,7 +48,9 @@ SRC :=	main.c \
 		parse_input.c \
 		prep_input.c \
 		sort_simple.c \
+		sort_complex.c \
 		sort_chunks.c \
+		sort_next_move.c \
 		sort_insertion.c \
 		utils_print.c \
 		utils_string.c \

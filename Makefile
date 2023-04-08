@@ -75,7 +75,7 @@ TESTBINS = $(patsubst $(TEST_DIR)/%.c, $(TEST_DIR)/bin/%, $(TESTS))
 .SILENT:
 
 all: CFLAGS = -Wall -Werror -Wextra
-all: $(NAME)
+all: clean $(NAME)
 	echo "$(GREEN)ALL DONE!$(RESET)"
 
 $(NAME): $(LIBFT) $(OBJS) $(HEADERS)

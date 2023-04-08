@@ -6,15 +6,37 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 07:47:52 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:21:00 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+bool	ft_try_open(char **argv)
+{
+	int		fd;
+	char	*temp;
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		return (false);
+	temp = get_next_line(fd);
+	while (temp)
+	{
+		argv[1] = temp;
+		temp = get_next_line(fd);
+		if (!temp)
+			break ;
+		free(argv[1]);
+	}
+	close(fd);
+	return (true);
+}
+
 int	main(int argc, char *argv[])
 {
 	static t_data	data;
+	static bool		file_opened;
 
 	if (argc == 1)
 	{
@@ -22,26 +44,11 @@ int	main(int argc, char *argv[])
 		exit(0);
 	}
 	else if (argc == 2)
-	{
-		int fd = open(argv[1], O_RDONLY);
-		if (fd != -1)
-		{
-			argv[1] = get_next_line(fd);
-			close(fd);
-		}
-	}
+		file_opened = ft_try_open(argv);
 	data.nums = argc - 1;
 	ft_check_input(argc, argv, &data.nums);
 	ft_parse_input(&data, argc, argv);
 	ft_prep_input(&data);
-	ft_print_stacks(&data);
-	data.div = DIV;
-	ft_prep_chunks(&data);
-	ft_presort_chunks(&data);
-	ft_insertion_sort(&data, &data.chunks[2]);
-	ft_print_moves(&data.moves);
-	ft_print_stacks(&data);
-	ft_cleanup_and_exit(&data, false);
 	if (ft_is_sorted(&data.a))
 	{
 		ft_printf("Everything sorted\n\n");
@@ -53,9 +60,12 @@ int	main(int argc, char *argv[])
 	}
 	else
 	{
-		ft_insertion_sort(&data, data.chunks);
+		ft_printf("Starting complex_sort\n\n");
+		ft_sort_complex(&data);
 	}
 	ft_print_moves(&data.moves);
 	ft_print_stacks(&data);
+	if (file_opened)
+		free(argv[1]);
 	ft_cleanup_and_exit(&data, false);
 }

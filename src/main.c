@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:21:00 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:40:39 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ int	main(int argc, char *argv[])
 		ft_printf("Starting complex_sort\n\n");
 		ft_sort_complex(&data);
 	}
-	ft_print_moves(&data.moves);
-	ft_print_stacks(&data);
+	//ft_print_moves(&data.moves);
 	if (file_opened)
 		free(argv[1]);
 	ft_cleanup_and_exit(&data, false);

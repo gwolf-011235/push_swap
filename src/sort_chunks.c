@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:30:21 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 15:32:09 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:34:09 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,4 @@ void	ft_presort_chunks(t_data *data)
 			ft_bust_a_move(RA, data);
 	}
 	ft_rotate_to_top(B, data, one->bounds[1]);
-	ft_print_stacks(data);
 }

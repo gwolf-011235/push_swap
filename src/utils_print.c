@@ -6,11 +6,23 @@
 /*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:05:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 15:01:55 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 08:36:46 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_color_print(char *string, uint32_t num)
+{
+	if (num <= 33)
+		ft_printf(GREEN);
+	else if (num <= 66)
+		ft_printf(YELLOW);
+	else
+		ft_printf(RED);
+	ft_printf(string, num);
+	ft_printf(RESET);
+}
 
 void	ft_print_stacks(t_data *data)
 {
@@ -25,11 +37,14 @@ void	ft_print_stacks(t_data *data)
 	while (temp_a > 0 || temp_b > 0)
 	{
 		if (temp_a > 0 && temp_b > 0)
-			ft_printf("\t%5d\t%5d", data->a.array[i], data->b.array[i]);
+		{
+			ft_color_print("\t%5d", data->a.array[i]);
+			ft_color_print("\t%5d", data->b.array[i]);
+		}
 		else if (temp_a > 0)
-			ft_printf("\t%5d", data->a.array[i]);
+			ft_color_print("\t%5d", data->a.array[i]);
 		else if (temp_b > 0)
-			ft_printf("\t\t%5d", data->b.array[i]);
+			ft_color_print("\t\t%5d", data->b.array[i]);
 		temp_a--;
 		temp_b--;
 		ft_printf("\n");

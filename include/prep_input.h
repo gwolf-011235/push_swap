@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prep_input.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
+/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:02:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/27 23:03:56 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:20:34 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 void			ft_prep_input(t_data *data);
 static void		ft_assign_keys(t_data *data);
 static uint32_t	ft_find_next_max(t_store *store, uint32_t nums);
+static void		ft_set_div(t_data *data);
 
 #endif

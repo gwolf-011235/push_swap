@@ -23,7 +23,7 @@ TEST_DIR := tests
 INC := -I $(INC_DIR) -I lib/libft/include
 
 # libraries
-LIB_FT := -L $(LIB_DIR_FT) -l ft 
+LIB_FT := -L $(LIB_DIR_FT) -l ft
 
 # compiling
 CC := cc
@@ -48,6 +48,7 @@ SRC :=	main.c \
 		parse_input.c \
 		prep_input.c \
 		sort_simple.c \
+		sort_chunks.c \
 		sort_insertion.c \
 		utils_print.c \
 		utils_string.c \
@@ -64,7 +65,7 @@ OBJS := $(addprefix $(OBJ_DIR)/, $(OBJ))
 HEADER := 	push_swap.h \
 			check_input.h \
 			parse_input.h \
-			prep_input.h	
+			prep_input.h
 HEADERS := $(addprefix $(INC_DIR)/, $(HEADER))
 
 # tests
@@ -107,7 +108,7 @@ $(LIBFT):
 	printf "$(YELLOW)$(BOLD)compilation$(RESET) [$(BLUE)libft$(RESET)]\n"
 	$(MAKE) -C $(LIB_DIR)/libft
 
-clean: 
+clean:
 	printf "$(YELLOW)$(BOLD)clean$(RESET) [$(BLUE)push_swap$(RESET)]\n"
 	rm -rf $(OBJ_DIR)
 	printf "$(RED)removed subdir $(OBJ_DIR)$(RESET)\n"
@@ -119,5 +120,5 @@ fclean: clean
 	$(MAKE) --no-print-directory -C $(LIB_DIR_FT) fclean
 
 re: fclean all
-	
+
 re_bonus: fclean bonus

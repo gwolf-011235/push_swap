@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:21:11 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:44:32 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void		ft_print_moves(t_queue *moves);
 
 //utils_string.c
 int			ft_move_like_atoi(char *str);
+bool		ft_check_overflow(char *str);
 
 //utils_sort.c
 uint32_t	ft_search_from_top(t_stack *stack, uint32_t num);

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 07:35:21 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 08:21:12 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,11 @@ void		ft_swap(t_stack *stack);
 void		ft_push(t_stack *dst, t_stack *src);
 void		ft_rotate(t_stack *stack);
 void		ft_rev_rotate(t_stack *stack);
+
+//merge_moves.c
+void		ft_merge_dupl_moves(t_queue *moves);
+t_node		*ft_find_dupl_yin(t_node *temp, uint8_t move);
+t_node		*ft_find_dupl_yang(t_node *temp, uint8_t move);
 
 //utils_print.c
 void		ft_print_stacks(t_data *data);

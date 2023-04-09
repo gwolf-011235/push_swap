@@ -45,6 +45,7 @@ SRC :=	main.c \
 		do_move.c \
 		logic.c \
 		moves.c \
+		merge_moves.c \
 		parse_input.c \
 		prep_input.c \
 		sort_simple.c \

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 00:05:25 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 07:35:21 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_store {
 }	t_store;
 
 typedef struct s_node {
-	char			*string;
+	uint8_t			value;
 	struct s_node	*next;
 }	t_node;
 
@@ -102,6 +102,8 @@ void		ft_rev_rotate(t_stack *stack);
 
 //utils_print.c
 void		ft_print_stacks(t_data *data);
+void		ft_print_stack_stats(t_data *data);
+void		ft_color_print(char *string, uint32_t num);
 void		ft_print_moves(t_queue *moves);
 
 //utils_string.c
@@ -128,8 +130,8 @@ void		ft_cleanup_and_exit(t_data *data, bool error);
 
 //queue.c
 void		ft_init_queue(t_queue *q);
-bool		ft_enqueue(t_queue *q, char *string);
-char		*ft_dequeue(t_queue *q);
+bool		ft_enqueue(t_queue *q, uint8_t value);
+uint8_t		ft_dequeue(t_queue *q);
 
 //sort_simple.c
 void		ft_simple_sort(t_data *data);

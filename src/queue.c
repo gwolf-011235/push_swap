@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:45:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/28 19:52:06 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 07:27:44 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	ft_init_queue(t_queue *q)
 	q->tail = NULL;
 }
 
-bool	ft_enqueue(t_queue *q, char *string)
+bool	ft_enqueue(t_queue *q, uint8_t	value)
 {
 	t_node	*newnode;
 
 	newnode = malloc(sizeof(t_node));
 	if (!newnode)
 		return (false);
-	newnode->string = string;
+	newnode->value = value;
 	newnode->next = NULL;
 	if (q->tail != NULL)
 		q->tail->next = newnode;
@@ -35,18 +35,18 @@ bool	ft_enqueue(t_queue *q, char *string)
 	return (true);
 }
 
-char	*ft_dequeue(t_queue *q)
+uint8_t	ft_dequeue(t_queue *q)
 {
 	t_node	*tmp;
-	char	*string;
+	uint8_t	value;
 
 	if (q->head == NULL)
-		return (NULL);
+		return (255);
 	tmp = q->head;
-	string = tmp->string;
+	value = tmp->value;
 	q->head = q->head->next;
 	if (q->head == NULL)
 		q->tail = NULL;
 	free(tmp);
-	return (string);
+	return (value);
 }

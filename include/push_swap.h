@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 08:21:12 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 18:42:47 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,11 @@ void		ft_rev_rotate(t_stack *stack);
 
 //merge_moves.c
 void		ft_merge_dupl_moves(t_queue *moves);
-t_node		*ft_find_dupl_yin(t_node *temp, uint8_t move);
-t_node		*ft_find_dupl_yang(t_node *temp, uint8_t move);
+void		ft_merge_yin_and_yang(t_queue *moves,
+				uint8_t yin_mv, uint8_t yang_mv, uint8_t whole);
+t_node		*ft_find_yin(t_node *temp, uint8_t yin_mv);
+t_node		*ft_find_yang(t_node *temp, uint8_t yin_mv, uint8_t yang_mv,
+				uint8_t whole);
 
 //utils_print.c
 void		ft_print_stacks(t_data *data);
@@ -154,7 +157,7 @@ void		ft_prep_chunks(t_data *data);
 bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
 void		ft_chunk_update_bounds(t_data *data, t_chunk *chunk);
 void		ft_chunk_prep_push(t_data *data, t_chunk *chunk, t_chunk *two);
-void		ft_presort_chunks(t_data *data);
+void		ft_presort_chunks(t_data *data, t_chunk *one, t_chunk *two);
 
 //sort_insertion.c
 void		ft_insertion_sort(t_data *data, t_chunk *chunk);

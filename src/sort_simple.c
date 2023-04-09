@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwolf < gwolf@student.42vienna.com >       +#+  +:+       +#+        */
+/*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:56:24 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/01 12:02:24 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 18:33:17 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_simple_sort(t_data *data)
 {
-	if (data->nums == 2)
+	if (data->a.size == 2)
 		ft_sort_two(data);
-	else if (data->nums == 3)
+	else if (data->a.size == 3)
 		ft_sort_three(data);
-	else if (data->nums == 4)
+	else if (data->a.size == 4)
 		ft_sort_four(data);
-	else if (data->nums == 5)
+	else if (data->a.size == 5)
 		ft_sort_five(data);
 }
 

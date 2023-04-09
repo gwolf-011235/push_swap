@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:18:03 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 08:23:07 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 20:41:33 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 void	ft_sort_complex(t_data *data)
 {
 	t_next	move;
+	uint32_t	i;
 
 	ft_prep_chunks(data);
-	ft_presort_chunks(data);
-	ft_insertion_sort(data, &data->chunks[data->div - 1]);
-	ft_rotate_to_top(B, data, data->chunks[data->div - 1].max);
-	ft_bust_some_moves(PA, data, data->chunks[data->div - 1].pushed);
+	i = 0;
+	while (i < data->div - 1)
+	{
+		ft_presort_chunks(data, &data->chunks[i], &data->chunks[i + 1]);
+		i++;
+	}
+	if (data->a.size > 3)
+		ft_bust_some_moves(PB, data, data->a.size - 3);
+	ft_simple_sort(data);
 	while (data->b.size > 0)
 	{
 		move = ft_calc_next_move(data);

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:18:03 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 20:41:33 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 20:48:37 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_sort_complex(t_data *data)
 {
-	t_next	move;
+	t_next		move;
 	uint32_t	i;
 
 	ft_prep_chunks(data);
@@ -33,8 +33,6 @@ void	ft_sort_complex(t_data *data)
 		ft_exec_next_move(data, &move);
 	}
 	ft_rotate_to_top(A, data, 1);
-	ft_merge_dupl_moves(&data->moves);
-	ft_print_moves(&data->moves);
 }
 
 void	ft_exec_next_move(t_data *data, t_next *move)

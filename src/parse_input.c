@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:47:35 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/09 22:29:12 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	ft_parse_input(t_data *data, int argc, char **argv)
 
 static void	ft_set_div(t_data *data)
 {
-	if (data->nums >= 100)
+	if (data->nums <= 100)
 		data->div = 3;
-	else if (data->nums >= 500)
+	else if (data->nums <= 500)
 		data->div = 7;
 	else
 		data->div = 1;

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:30:21 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 18:36:02 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/10 23:24:53 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,30 @@ void	ft_presort_chunks(t_data *data, t_chunk *one, t_chunk *two)
 		else
 			ft_bust_a_move(RA, data);
 	}
-	//maybe check if bounds two is shorter?
 	ft_rotate_to_top(B, data, one->bounds[1]);
+}
+
+void	ft_quick_chunk_sort(t_data *data, t_chunk *one, t_chunk *two)
+{
+	while ((one->pushed < one->size || two->pushed < two->size))
+	{
+		if (ft_is_elem_of_chunk(data->a.array[0], one))
+		{
+			if (two->pushed == 0)
+				ft_bust_a_move(PB, data);
+			else
+			{
+				ft_bust_a_move(PB, data);
+				ft_bust_a_move(RB, data);
+			}
+			one->pushed++;
+		}
+		else if (ft_is_elem_of_chunk(data->a.array[0], two))
+		{
+			ft_bust_a_move(PB, data);
+			two->pushed++;
+		}
+		else
+			ft_bust_a_move(RA, data);
+	}
 }

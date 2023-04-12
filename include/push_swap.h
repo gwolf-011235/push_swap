@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 18:42:47 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/10 23:18:14 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,8 @@ bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
 void		ft_chunk_update_bounds(t_data *data, t_chunk *chunk);
 void		ft_chunk_prep_push(t_data *data, t_chunk *chunk, t_chunk *two);
 void		ft_presort_chunks(t_data *data, t_chunk *one, t_chunk *two);
+void	ft_quick_chunk_sort(t_data *data, t_chunk *one, t_chunk *two);
+
 
 //sort_insertion.c
 void		ft_insertion_sort(t_data *data, t_chunk *chunk);

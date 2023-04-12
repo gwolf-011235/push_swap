@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 20:48:19 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/10 23:12:50 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int	main(int argc, char *argv[])
 		//ft_printf("Starting complex_sort\n\n");
 		ft_sort_complex(&data);
 	}
-	ft_merge_dupl_moves(&data->moves);
-	ft_print_moves(&data.moves);
 	if (file_opened)
 		free(argv[1]);
 	ft_cleanup_and_exit(&data, false);

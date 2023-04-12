@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:23:55 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/08 17:43:58 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/12 11:37:44 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_move_like_atoi(char *str)
 	if (str[i] == '-')
 		i++;
 	while (ft_isdigit(str[i]))
+		i++;
+	while (str[i] == ' ')
 		i++;
 	return (i);
 }

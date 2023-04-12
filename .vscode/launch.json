@@ -5,6 +5,31 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "Checker",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/checker",
+			"args": ["2 3 1 5"],
+			"stopAtEntry": true,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			],
+			"preLaunchTask": "make checker"
+		},
+		{
 			"name": "Read numbers from file",
 			"type": "cppdbg",
 			"request": "launch",

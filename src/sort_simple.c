@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:56:24 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 18:33:17 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/12 10:50:56 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void	ft_sort_five(t_data *data)
 	ft_rotate_to_top(A, data, 2);
 	ft_bust_a_move(PB, data);
 	ft_sort_three(data);
-	ft_bust_a_move(PB, data);
-	ft_bust_a_move(PB, data);
+	ft_bust_a_move(PA, data);
+	ft_bust_a_move(PA, data);
 }

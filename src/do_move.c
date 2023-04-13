@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:12:19 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 07:20:07 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/12 17:36:44 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	ft_bust_a_move(uint8_t move, t_data *data)
 		ft_rev_rotate(&data->a);
 	else if (move == RRB)
 		ft_rev_rotate(&data->b);
+	else if (move == 255)
+		ft_checker_talks(data, false);
 	if (!ft_enqueue(&data->moves, move))
-		ft_cleanup_and_exit(data, true);
+		ft_cleanup_and_leave(data, true);
 }

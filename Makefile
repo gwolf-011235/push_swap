@@ -33,6 +33,7 @@ COMPILE = $(CC) $(CFLAGS) $(INC)
 # targets
 NAME := push_swap
 LIBFT := $(LIB_DIR_FT)/libft.a
+NAME_CHECKER := checker
 
 # progress bar
 HIT_TOTAL = $(words $(SRCS))
@@ -58,12 +59,27 @@ SRC :=	main.c \
 		utils_sort.c \
 		utils_sort2.c \
 		queue.c \
-		terminate.c
+		terminate.c \
+		try_open.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
+
+SRC_CHECKER := 	checker.c \
+				check_input.c \
+				parse_input.c \
+				prep_input.c \
+				do_move.c \
+				logic.c \
+				moves.c \
+				utils_string.c \
+				queue.c \
+				terminate.c
+SRCS_CHECKER := $(addprefix $(SRC_DIR)/, $(SRC))
 
 # objects
 OBJ := $(SRC:.c=.o)
 OBJS := $(addprefix $(OBJ_DIR)/, $(OBJ))
+OBJ_CHECKER := $(SRC_CHECKER:.c=.o)
+OBJS_CHECKER := $(addprefix $(OBJ_DIR)/, $(OBJ_CHECKER))
 
 # headers
 HEADER := 	push_swap.h \
@@ -71,10 +87,6 @@ HEADER := 	push_swap.h \
 			parse_input.h \
 			prep_input.h
 HEADERS := $(addprefix $(INC_DIR)/, $(HEADER))
-
-# tests
-TESTS = $(wildcard $(TEST_DIR)/*.c)
-TESTBINS = $(patsubst $(TEST_DIR)/%.c, $(TEST_DIR)/bin/%, $(TESTS))
 
 .PHONY: all, clean, fclean, re, debug, bonus, re_bonus
 .SILENT:
@@ -90,6 +102,10 @@ $(NAME): $(LIBFT) $(OBJS) $(HEADERS)
 debug: $(NAME)
 	echo "$(GREEN)DEBUG ready!$(RESET)"
 
+$(NAME_CHECKER): $(LIBFT) $(OBJS_CHECKER) $(HEADERS)
+	$(COMPILE) $(OBJS_CHECKER) $(LIB_FT) -o $@
+	echo "$(GREEN)$(NAME_CHECKER) created!$(RESET)"
+
 $(OBJ_DIR):
 	mkdir -p $@
 
@@ -99,14 +115,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) message
 message:
 	printf "$(YELLOW)$(BOLD)compilation$(RESET) [$(BLUE)push_swap$(RESET)]\n"
 
-$(TEST_DIR)/bin/%: $(TEST_DIR)/%.c | $(OBJS)
-	$(COMPILE) $< $(OBJS) $(LIB_FT) -o $@ -lcriterion
-
-$(TEST_DIR)/bin:
-	mkdir -p $@
-
-test: $(LIBFT) $(TEST_DIR)/bin $(TESTBINS)
-	for test in $(TESTBINS) ; do ./$$test ; done
 
 $(LIBFT):
 	printf "$(YELLOW)$(BOLD)compilation$(RESET) [$(BLUE)libft$(RESET)]\n"
@@ -120,6 +128,8 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	printf "$(RED)removed bin $(NAME)$(RESET)\n"
+	rm -rf $(NAME_CHECKER)
+	printf "$(RED)removed bin $(NAME_CHECKER)$(RESET)\n"
 	printf "$(YELLOW)$(BOLD)clean$(RESET) [$(BLUE)libft$(RESET)]\n"
 	$(MAKE) --no-print-directory -C $(LIB_DIR_FT) fclean
 

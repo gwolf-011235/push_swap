@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:27:13 by gwolf             #+#    #+#             */
-/*   Updated: 2023/03/29 01:01:36 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/12 17:28:00 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_terminate(void)
 	exit(1);
 }
 
-void	ft_cleanup_and_exit(t_data *data, bool error)
+void	ft_cleanup_and_leave(t_data *data, bool error)
 {
 	if (data->a.array)
 		free(data->a.array);
@@ -28,6 +28,9 @@ void	ft_cleanup_and_exit(t_data *data, bool error)
 		free(data->store.key);
 	if (data->store.value)
 		free(data->store.value);
+	if (data->chunks)
+		free(data->chunks);
+	ft_killqueue(&data->moves);
 	if (error)
 		ft_terminate();
 	else

@@ -6,87 +6,25 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/12 17:35:08 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:24:26 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+// system
 # include <fcntl.h>
+
+// libft
 # include "ft_fd.h"
 # include "ft_print.h"
 
-# define A 0
-# define B 1
-# define SUM 2
-
-# define SA 0
-# define SB 1
-# define SS 2
-# define PA 3
-# define PB 4
-# define RA 5
-# define RB 6
-# define RR 7
-# define RRA 8
-# define RRB 9
-# define RRR 10
-
-# define RESET "\033[0m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define RED "\033[31m"
-
-typedef struct s_stack {
-	uint32_t	size;
-	uint32_t	*array;
-}	t_stack;
-
-typedef struct s_store {
-	uint32_t	size;
-	uint32_t	*key;
-	int32_t		*value;
-}	t_store;
-
-typedef struct s_node {
-	uint8_t			value;
-	struct s_node	*next;
-}	t_node;
-
-typedef struct s_queue {
-	t_node	*head;
-	t_node	*tail;
-}	t_queue;
-
-typedef struct s_chunk {
-	uint32_t	size;
-	uint32_t	min;
-	uint32_t	max;
-	uint32_t	pushed;
-	uint32_t	bounds[2];
-}	t_chunk;
-
-typedef struct s_data {
-	uint32_t	nums;
-	uint32_t	div;
-	t_stack		a;
-	t_stack		b;
-	t_store		store;
-	t_queue		moves;
-	t_chunk		*chunks;
-}	t_data;
-
-typedef struct s_next {
-	int32_t	index;
-	int32_t	cost;
-	int32_t	temp;
-	int32_t	target;
-	bool	top;
-}	t_next;
+// push_swap
+# include "push_swap_typedef.h"
+# include "push_swap_macros.h"
 
 bool		ft_try_open(char **argv);
-void	ft_checker_talks(t_data *data, bool cool);
 
 //check_input.c
 bool		ft_check_input(int argc, char **argv, uint32_t *count);
@@ -172,14 +110,11 @@ int32_t		ft_calc_sum_cost(int32_t cost_a, int32_t cost_b);
 void		ft_update_next_move(t_next *move, int32_t cost_sum, uint32_t i);
 
 //logic.c
-char		*ft_return_move_string(uint8_t move);
 bool		ft_is_sorted(t_stack *stack);
 
 //do_move.c
 void		ft_bust_a_move(uint8_t move, t_data *data);
 void		ft_bust_some_moves(uint8_t move, t_data *data, uint32_t repeat);
-
-//checker.c
-uint8_t		ft_return_move_num(char *string);
+char		*ft_return_move_string(uint8_t move);
 
 #endif

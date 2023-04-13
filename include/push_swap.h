@@ -6,17 +6,14 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:45:00 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:46:25 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// system
-
 // libft
-# include "ft_fd.h"
 # include "ft_print.h"
 
 // push_swap

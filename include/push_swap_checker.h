@@ -6,12 +6,15 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:19:06 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:42:53 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:46:33 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_CHECKER_H
 # define PUSH_SWAP_CHECKER_H
+
+//libft
+# include "ft_fd.h"
 
 // push_swap
 # include "push_swap.h"

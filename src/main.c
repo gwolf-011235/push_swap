@@ -6,33 +6,12 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/10 23:12:50 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/12 16:04:43 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-bool	ft_try_open(char **argv)
-{
-	int		fd;
-	char	*temp;
-
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		return (false);
-	temp = get_next_line(fd);
-	while (temp)
-	{
-		argv[1] = temp;
-		temp = get_next_line(fd);
-		if (!temp)
-			break ;
-		free(argv[1]);
-	}
-	close(fd);
-	return (true);
-}
-
+/*
 int	main(int argc, char *argv[])
 {
 	static t_data	data;
@@ -51,19 +30,53 @@ int	main(int argc, char *argv[])
 	ft_prep_input(&data);
 	if (ft_is_sorted(&data.a))
 	{
-		//ft_printf("Everything sorted\n\n");
+		ft_printf("Everything sorted\n\n");
 	}
 	else if (data.nums <= 5)
 	{
-		//ft_printf("Starting simple_sort\n\n");
+		ft_printf("Starting simple_sort\n\n");
 		ft_simple_sort(&data);
 	}
 	else
 	{
-		//ft_printf("Starting complex_sort\n\n");
+		ft_printf("Starting complex_sort\n\n");
 		ft_sort_complex(&data);
 	}
 	if (file_opened)
 		free(argv[1]);
-	ft_cleanup_and_exit(&data, false);
+	//if (!ft_is_sorted(&data.a))
+		//ft_cleanup_and_leave(&data, true);
+	ft_print_stacks(&data);
+	ft_merge_dupl_moves(&data.moves);
+	ft_print_moves(&data.moves);
+	ft_cleanup_and_leave(&data, false);
+}
+*/
+int	main(int argc, char *argv[])
+{
+	static t_data	data;
+
+	if (argc == 1)
+	{
+		exit(0);
+	}
+	data.nums = argc - 1;
+	ft_check_input(argc, argv, &data.nums);
+	ft_parse_input(&data, argc, argv);
+	ft_prep_input(&data);
+	if (ft_is_sorted(&data.a))
+	{
+		ft_cleanup_and_leave(&data, false);
+	}
+	else if (data.nums <= 5)
+	{
+		ft_simple_sort(&data);
+	}
+	else
+	{
+		ft_sort_complex(&data);
+	}
+	ft_merge_dupl_moves(&data.moves);
+	ft_print_moves(&data.moves);
+	ft_cleanup_and_leave(&data, false);
 }

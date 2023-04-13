@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:24:26 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:29:05 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 # include "push_swap_typedef.h"
 # include "push_swap_macros.h"
 
-bool		ft_try_open(char **argv);
-
 //check_input.c
 bool		ft_check_input(int argc, char **argv, uint32_t *count);
 
@@ -42,6 +40,7 @@ void		ft_rotate(t_stack *stack);
 void		ft_rev_rotate(t_stack *stack);
 
 //merge_moves.c
+void		ft_print_moves(t_queue *moves);
 void		ft_merge_dupl_moves(t_queue *moves);
 void		ft_merge_yin_and_yang(t_queue *moves,
 				uint8_t yin_mv, uint8_t yang_mv, uint8_t whole);
@@ -53,7 +52,6 @@ t_node		*ft_find_yang(t_node *temp, uint8_t yin_mv, uint8_t yang_mv,
 void		ft_print_stacks(t_data *data);
 void		ft_print_stack_stats(t_data *data);
 void		ft_color_print(char *string, uint32_t num);
-void		ft_print_moves(t_queue *moves);
 
 //utils_string.c
 int			ft_move_like_atoi(char *str);
@@ -116,5 +114,8 @@ bool		ft_is_sorted(t_stack *stack);
 void		ft_bust_a_move(uint8_t move, t_data *data);
 void		ft_bust_some_moves(uint8_t move, t_data *data, uint32_t repeat);
 char		*ft_return_move_string(uint8_t move);
+
+//try_open.c
+bool		ft_try_open(char **argv);
 
 #endif

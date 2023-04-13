@@ -6,11 +6,28 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 08:19:12 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 19:28:40 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:29:20 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_print_moves(t_queue *moves)
+{
+	int32_t	value;
+	char	*string;
+
+	if (moves->head == NULL)
+		return ;
+	while (moves->head)
+	{
+		value = ft_dequeue(moves);
+		if (value == 255)
+			return ;
+		string = ft_return_move_string(value);
+		ft_printf("%s", string);
+	}
+}
 
 void	ft_merge_dupl_moves(t_queue *moves)
 {

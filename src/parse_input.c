@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/09 22:29:12 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/12 15:38:50 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,20 @@ void	ft_parse_input(t_data *data, int argc, char **argv)
 
 static void	ft_set_div(t_data *data)
 {
-	if (data->nums <= 100)
+	if (data->nums <= 10)
+		data->div = 1;
+	else if (data->nums <= 40)
+		data->div = 2;
+	else if (data->nums <= 100)
 		data->div = 3;
+	else if (data->nums <= 160)
+		data->div = 4;
+	else if (data->nums <= 250)
+		data->div = 5;
+	else if (data->nums <= 360)
+		data->div = 6;
 	else if (data->nums <= 500)
 		data->div = 7;
-	else
-		data->div = 1;
 }
 
 static void	ft_malloc_all_the_things(t_data *data)
@@ -40,7 +48,7 @@ static void	ft_malloc_all_the_things(t_data *data)
 	if (!data->a.array || !data->b.array
 		|| !data->store.key || !data->store.value
 		|| !data->chunks)
-		ft_cleanup_and_exit(data, true);
+		ft_cleanup_and_leave(data, true);
 	ft_memset(data->a.array, 0, (data->nums + 1) * sizeof(int32_t));
 	ft_memset(data->b.array, 0, (data->nums + 1) * sizeof(int32_t));
 	ft_memset(data->store.key, 0, data->nums * sizeof(int32_t));
@@ -61,7 +69,7 @@ static void	ft_extract_nums(t_data *data, int argc, char **argv)
 		while (argv[arg][i])
 		{
 			if (ft_check_overflow(&argv[arg][i]))
-				ft_cleanup_and_exit(data, true);
+				ft_cleanup_and_leave(data, true);
 			if (i > 0)
 				pos++;
 			data->store.value[pos] = ft_atoi(&argv[arg][i]);
@@ -83,7 +91,7 @@ static void	ft_check_doubles(t_data *data)
 		while (j < data->nums)
 		{
 			if (data->store.value[i] == data->store.value[j])
-				ft_cleanup_and_exit(data, true);
+				ft_cleanup_and_leave(data, true);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/10 23:18:14 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/12 17:35:08 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ typedef struct s_next {
 	bool	top;
 }	t_next;
 
+bool		ft_try_open(char **argv);
+void	ft_checker_talks(t_data *data, bool cool);
+
 //check_input.c
 bool		ft_check_input(int argc, char **argv, uint32_t *count);
 
@@ -134,12 +137,13 @@ int32_t		ft_abs(int32_t num);
 
 //terminate.c
 void		ft_terminate(void);
-void		ft_cleanup_and_exit(t_data *data, bool error);
+void		ft_cleanup_and_leave(t_data *data, bool error);
 
 //queue.c
 void		ft_init_queue(t_queue *q);
 bool		ft_enqueue(t_queue *q, uint8_t value);
 uint8_t		ft_dequeue(t_queue *q);
+void		ft_killqueue(t_queue *q);
 
 //sort_simple.c
 void		ft_simple_sort(t_data *data);
@@ -155,17 +159,11 @@ void		ft_exec_next_move(t_data *data, t_next *move);
 //sort_chunks.c
 void		ft_prep_chunks(t_data *data);
 bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
-void		ft_chunk_update_bounds(t_data *data, t_chunk *chunk);
-void		ft_chunk_prep_push(t_data *data, t_chunk *chunk, t_chunk *two);
-void		ft_presort_chunks(t_data *data, t_chunk *one, t_chunk *two);
-void	ft_quick_chunk_sort(t_data *data, t_chunk *one, t_chunk *two);
-
+void		ft_quick_chunk_sort(t_data *data, t_chunk *one, t_chunk *two);
 
 //sort_insertion.c
-void		ft_insertion_sort(t_data *data, t_chunk *chunk);
 int32_t		ft_count_rot_top(uint32_t num, t_stack *stack);
 int32_t		ft_count_rot_bot(uint32_t num, t_stack *stack);
-void		ft_rot_and_push_b(uint32_t num, t_data *data, t_chunk *chunk);
 
 //sort_next_move.c
 t_next		ft_calc_next_move(t_data *data);
@@ -180,5 +178,8 @@ bool		ft_is_sorted(t_stack *stack);
 //do_move.c
 void		ft_bust_a_move(uint8_t move, t_data *data);
 void		ft_bust_some_moves(uint8_t move, t_data *data, uint32_t repeat);
+
+//checker.c
+uint8_t		ft_return_move_num(char *string);
 
 #endif

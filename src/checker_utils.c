@@ -6,11 +6,11 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:07:55 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:11:10 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:38:21 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_checker.h"
 
 void	ft_copy_the_move(uint8_t move, t_data *data)
 {

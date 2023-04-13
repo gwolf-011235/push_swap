@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:35:23 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:36:10 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void		ft_merge_yin_and_yang(t_queue *moves,
 t_node		*ft_find_yin(t_node *temp, uint8_t yin_mv);
 t_node		*ft_find_yang(t_node *temp, uint8_t yin_mv, uint8_t yang_mv,
 				uint8_t whole);
-
 
 //utils_string.c
 int			ft_move_like_atoi(char *str);

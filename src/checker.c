@@ -6,11 +6,11 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:06:06 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:11:05 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:39:07 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_checker.h"
 
 int	main(int argc, char *argv[])
 {

@@ -64,10 +64,10 @@ SRC :=	main.c \
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 
 SRC_CHECKER := 	checker.c \
+				checker_utils.c \
 				check_input.c \
 				parse_input.c \
 				prep_input.c \
-				do_move.c \
 				logic.c \
 				moves.c \
 				utils_string.c \

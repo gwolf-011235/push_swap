@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:05:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:34:23 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:36:42 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_print_stacks(t_data *data)
 		ft_printf("\n");
 		i++;
 	}
-	ft_print_stack_stats(data);
+	ft_print_stats(data);
 }
 
 static void	ft_color_print(char *string, uint32_t num)

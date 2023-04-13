@@ -1,36 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_print.c                                      :+:      :+:    :+:   */
+/*   print_stacks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:05:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:29:10 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/13 07:34:23 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ft_color_print(char *string, uint32_t num)
-{
-	if (num <= 33)
-		ft_printf(GREEN);
-	else if (num <= 66)
-		ft_printf(YELLOW);
-	else
-		ft_printf(RED);
-	ft_printf(string, num);
-	ft_printf(RESET);
-}
-
-void	ft_print_stack_stats(t_data *data)
-{
-	ft_printf("\t_____\t_____\n\t  a  \t  b\n\n");
-	ft_printf("Sum of integers: %d\n", data->nums);
-	ft_printf("Integers in stack a: %d\n", data->a.size);
-	ft_printf("Integers in stack b: %d\n\n", data->b.size);
-}
+#include "print_stacks.h"
 
 void	ft_print_stacks(t_data *data)
 {
@@ -59,4 +39,24 @@ void	ft_print_stacks(t_data *data)
 		i++;
 	}
 	ft_print_stack_stats(data);
+}
+
+static void	ft_color_print(char *string, uint32_t num)
+{
+	if (num <= 33)
+		ft_printf(GREEN);
+	else if (num <= 66)
+		ft_printf(YELLOW);
+	else
+		ft_printf(RED);
+	ft_printf(string, num);
+	ft_printf(RESET);
+}
+
+static void	ft_print_stats(t_data *data)
+{
+	ft_printf("\t_____\t_____\n\t  a  \t  b\n\n");
+	ft_printf("Sum of integers: %d\n", data->nums);
+	ft_printf("Integers in stack a: %d\n", data->a.size);
+	ft_printf("Integers in stack b: %d\n\n", data->b.size);
 }

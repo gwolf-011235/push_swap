@@ -46,7 +46,7 @@ SRC :=	main.c \
 		do_move.c \
 		logic.c \
 		moves.c \
-		merge_moves.c \
+		moves_queue.c \
 		parse_input.c \
 		prep_input.c \
 		sort_simple.c \
@@ -54,12 +54,12 @@ SRC :=	main.c \
 		sort_chunks.c \
 		sort_next_move.c \
 		sort_insertion.c \
-		utils_print.c \
 		utils_string.c \
 		utils_sort.c \
 		utils_sort2.c \
 		queue.c \
 		terminate.c \
+		print_stacks.c \
 		try_open.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 

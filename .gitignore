@@ -1,6 +1,8 @@
 # Temp
 *.swp
 *.gdb_history
+test_runs.txt
+random_numbers.txt
 
 # Object files
 *.o

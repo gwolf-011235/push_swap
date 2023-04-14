@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:28 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/12 16:04:43 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 16:29:07 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ int	main(int argc, char *argv[])
 		exit(0);
 	}
 	data.nums = argc - 1;
-	ft_check_input(argc, argv, &data.nums);
+	if (!ft_check_input(argc, argv, &data.nums))
+		ft_cleanup_and_leave(&data, false);
 	ft_parse_input(&data, argc, argv);
 	ft_prep_input(&data);
 	if (ft_is_sorted(&data.a))

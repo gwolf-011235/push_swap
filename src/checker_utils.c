@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:07:55 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 15:54:27 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 17:21:10 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_copy_the_move(uint8_t move, t_data *data)
 	else if (move == RRB)
 		ft_rev_rotate(&data->b);
 	else if (move == 255)
-		ft_checker_talks(data, false);
+		ft_checker_talks(data, ERROR);
 }
 
 uint8_t	ft_return_move_num(char *string)
@@ -62,13 +62,20 @@ uint8_t	ft_return_move_num(char *string)
 		return (255);
 }
 
-void	ft_checker_talks(t_data *data, bool cool)
+void	ft_checker_talks(t_data *data, t_status status)
 {
-	if (cool)
+	char	buffer[4096];
+
+	if (status == ERROR)
+	{
+		read(0, buffer, 4096);
+		ft_cleanup_and_leave(data, true);
+	}
+	if (status == OK)
 	{
 		ft_printf("OK\n");
 	}
-	else
+	else if (status == KO)
 	{
 		ft_printf("KO\n");
 	}
@@ -93,7 +100,7 @@ char	*ft_buffer_next_line(char buffer[5])
 			return (buffer);
 		read_count += read(0, buffer + offset, 1);
 	}
-	return (NULL);
+	return (buffer);
 }
 
 void	ft_check_move_solution(t_data *data)
@@ -110,7 +117,7 @@ void	ft_check_move_solution(t_data *data)
 		ft_copy_the_move(move, data);
 	}
 	if (ft_is_sorted(&data->a))
-		ft_checker_talks(data, true);
+		ft_checker_talks(data, OK);
 	else
-		ft_checker_talks(data, false);
+		ft_checker_talks(data, KO);
 }

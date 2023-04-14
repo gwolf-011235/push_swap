@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:07:55 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:38:21 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 15:54:27 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,36 +75,38 @@ void	ft_checker_talks(t_data *data, bool cool)
 	ft_cleanup_and_leave(data, false);
 }
 
-void	ft_check_is_sorted(t_data *data)
+char	*ft_buffer_next_line(char buffer[5])
 {
-	char	*input;
+	int32_t	read_count;
+	int32_t	offset;
 
-	if (ft_is_sorted(&data->a))
+	ft_memset(buffer, 0, 4);
+	read_count = read(0, buffer, 1);
+	if (read_count == 0)
+		return (NULL);
+	while (read_count < 5)
 	{
-		input = get_next_line(0);
-		if (input != NULL)
-		{
-			free(input);
-			ft_checker_talks(data, false);
-		}
-		else
-			ft_checker_talks(data, true);
+		if (read_count == -1)
+			return (NULL);
+		offset = read_count;
+		if (ft_memchr(buffer, '\n', 4))
+			return (buffer);
+		read_count += read(0, buffer + offset, 1);
 	}
+	return (NULL);
 }
 
 void	ft_check_move_solution(t_data *data)
 {
-	char	*input;
+	char	buffer[5];
 	uint8_t	move;
 
-	input = ft_strdup("start");
-	while (input)
+	buffer[4] = '\0';
+	while (1)
 	{
-		free(input);
-		input = get_next_line(0);
-		if (input == NULL)
+		if (ft_buffer_next_line(buffer) == NULL)
 			break ;
-		move = ft_return_move_num(input);
+		move = ft_return_move_num(buffer);
 		ft_copy_the_move(move, data);
 	}
 	if (ft_is_sorted(&data->a))

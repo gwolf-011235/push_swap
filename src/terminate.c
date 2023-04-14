@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:27:13 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/12 17:28:00 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 16:48:07 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,3 @@ void	ft_cleanup_and_leave(t_data *data, bool error)
 	else
 		exit(0);
 }
-
-

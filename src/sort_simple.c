@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:56:24 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/12 10:50:56 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 14:29:20 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ void	ft_sort_two(t_data *data)
 
 void	ft_sort_three(t_data *data)
 {
-	t_stack	*a;
-
-	a = &data->a;
-	if (a->array[0] < a->array[1])
+	if (ft_is_sorted(&data->a))
+		return ;
+	if (data->a.array[0] < data->a.array[1])
 	{
-		if (a->array[0] < a->array[2])
+		if (data->a.array[0] < data->a.array[2])
 		{
 			ft_bust_a_move(RRA, data);
 			ft_bust_a_move(SA, data);
@@ -47,9 +46,10 @@ void	ft_sort_three(t_data *data)
 	}
 	else
 	{
-		if (a->array[0] < a->array[2])
+		if (data->a.array[0] < data->a.array[2])
 			ft_bust_a_move(SA, data);
-		else if (a->array[0] > a->array[2] && a->array[1] > a->array[2])
+		else if (data->a.array[0] > data->a.array[2]
+			&& data->a.array[1] > data->a.array[2])
 		{
 			ft_bust_a_move(RA, data);
 			ft_bust_a_move(SA, data);
@@ -62,6 +62,8 @@ void	ft_sort_three(t_data *data)
 void	ft_sort_four(t_data *data)
 {
 	ft_rotate_to_top(A, data, 1);
+	if (ft_is_sorted(&data->a))
+		return ;
 	ft_bust_a_move(PB, data);
 	ft_sort_three(data);
 	ft_bust_a_move(PA, data);

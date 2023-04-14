@@ -79,7 +79,31 @@
 			],
 			"preLaunchTask": "make"
 		},
-
+		{
+			"name": "debug with 5 3 1 2 4 6",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/push_swap",
+			"args": ["5 3 1 2 4 6"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			],
+			"preLaunchTask": "make"
+		},
 		{
 			"name": "debug with arg 1 2 3",
 			"type": "cppdbg",

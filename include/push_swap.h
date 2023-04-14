@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:46:25 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 14:20:40 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ bool		ft_is_sorted(t_stack *stack);
 //do_move.c
 void		ft_bust_a_move(uint8_t move, t_data *data);
 void		ft_bust_some_moves(uint8_t move, t_data *data, uint32_t repeat);
-char		*ft_return_move_string(uint8_t move);
+void		ft_print_move_string(uint8_t move);
 
 //print_stacks.c
 void		ft_print_stacks(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:12:19 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:37:00 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 11:10:59 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,30 @@ void	ft_bust_a_move(uint8_t move, t_data *data)
 		ft_cleanup_and_leave(data, true);
 }
 
-char	*ft_return_move_string(uint8_t move)
+void	ft_print_move_string(uint8_t move)
 {
 	if (move == SA)
-		return ("sa\n");
+		ft_printf("sa\n");
 	else if (move == SB)
-		return ("sb\n");
+		ft_printf("sb\n");
 	else if (move == SS)
-		return ("ss\n");
+		ft_printf("ss\n");
 	else if (move == PA)
-		return ("pa\n");
+		ft_printf("pa\n");
 	else if (move == PB)
-		return ("pb\n");
+		ft_printf("pb\n");
 	else if (move == RA)
-		return ("ra\n");
+		ft_printf("ra\n");
 	else if (move == RB)
-		return ("rb\n");
+		ft_printf("rb\n");
 	else if (move == RR)
-		return ("rr\n");
+		ft_printf("rr\n");
 	else if (move == RRA)
-		return ("rra\n");
+		ft_printf("rra\n");
 	else if (move == RRB)
-		return ("rrb\n");
+		ft_printf("rrb\n");
 	else if (move == RRR)
-		return ("rrr\n");
+		ft_printf("rrr\n");
 	else
-		return (NULL);
+		return ;
 }

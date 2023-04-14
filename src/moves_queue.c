@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge_moves.c                                      :+:      :+:    :+:   */
+/*   moves_queue.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 08:19:12 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:29:20 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/14 11:09:06 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_print_moves(t_queue *moves)
 {
 	int32_t	value;
-	char	*string;
 
 	if (moves->head == NULL)
 		return ;
@@ -24,8 +23,7 @@ void	ft_print_moves(t_queue *moves)
 		value = ft_dequeue(moves);
 		if (value == 255)
 			return ;
-		string = ft_return_move_string(value);
-		ft_printf("%s", string);
+		ft_print_move_string(value);
 	}
 }
 

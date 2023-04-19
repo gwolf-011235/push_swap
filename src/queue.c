@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:45:10 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/12 17:26:42 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:08:38 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ uint8_t	ft_dequeue(t_queue *q)
 	return (value);
 }
 
-void	ft_killqueue(t_queue *q)
+void	ft_kill_queue(t_queue *q)
 {
 	t_node	*tmp;
 

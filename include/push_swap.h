@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:00:25 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:08:38 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void		ft_cleanup_and_leave(t_data *data, bool error);
 void		ft_init_queue(t_queue *q);
 bool		ft_enqueue(t_queue *q, uint8_t value);
 uint8_t		ft_dequeue(t_queue *q);
-void		ft_killqueue(t_queue *q);
+void		ft_kill_queue(t_queue *q);
 
 //sort_simple.c
 void		ft_sort_simple(t_data *data);

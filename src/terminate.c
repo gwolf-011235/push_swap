@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:27:13 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 16:48:07 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:08:38 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_cleanup_and_leave(t_data *data, bool error)
 		free(data->store.value);
 	if (data->chunks)
 		free(data->chunks);
-	ft_killqueue(&data->moves);
+	ft_kill_queue(&data->moves);
 	if (error)
 		ft_terminate();
 	else

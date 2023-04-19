@@ -63,17 +63,19 @@ SRC :=	main.c \
 		try_open.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 
-SRC_CHECKER := 	checker.c \
-				checker_utils.c \
+SRC_CHECKER := 	checker_bonus.c \
+				checker_utils_bonus.c \
 				check_input.c \
 				parse_input.c \
 				prep_input.c \
-				logic.c \
+				moves_exec.c \
 				moves.c \
 				moves2.c \
 				utils_string.c \
+				utils_sort.c \
+				utils_sort2.c \
+				print_moves.c \
 				queue.c \
-				do_move.c \
 				terminate.c
 SRCS_CHECKER := $(addprefix $(SRC_DIR)/, $(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:17:14 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:22:35 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,11 @@ void		ft_parse_input(t_data *data, int argc, char **argv);
 //prep_input.c
 void		ft_prep_input(t_data *data);
 
+//moves_exec.c
+void		ft_bust_a_move(t_moves move, t_data *data);
+void		ft_bust_some_moves(t_moves move, t_data *data, uint32_t repeat);
+void		ft_handle_move(t_moves move, t_data *data);
+
 //moves.c
 void		ft_swap(t_stack *stack);
 void		ft_push(t_stack *dst, t_stack *src);
@@ -122,27 +127,6 @@ void		ft_merge_yin_and_yang(t_queue *moves,
 t_node		*ft_find_yin(t_node *temp, uint8_t yin_mv);
 t_node		*ft_find_yang(t_node *temp, uint8_t yin_mv, uint8_t yang_mv,
 				uint8_t whole);
-
-//utils_string.c
-int			ft_move_like_atoi(char *str);
-bool		ft_check_overflow(char *str);
-
-//utils_sort.c
-uint32_t	ft_search_from_top(t_stack *stack, uint32_t num);
-bool		ft_rotate_to_top(uint8_t name, t_data *data, uint32_t num);
-bool		ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num);
-uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
-uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
-
-//utils_sort2.c
-bool		ft_is_sorted(t_stack *stack);
-int32_t		ft_count_rot_top(uint32_t num, t_stack *stack);
-int32_t		ft_count_rot_bot(uint32_t num, t_stack *stack);
-
-//terminate.c
-void		ft_terminate(void);
-void		ft_cleanup_and_leave(t_data *data, bool error);
-
 //queue.c
 void		ft_init_queue(t_queue *q);
 bool		ft_enqueue(t_queue *q, uint8_t value);
@@ -171,14 +155,29 @@ int32_t		ft_calc_insert_cost(uint32_t num, t_stack *stack, t_next *move);
 int32_t		ft_calc_sum_cost(int32_t cost_a, int32_t cost_b);
 void		ft_update_next_move(t_next *move, int32_t cost_sum, uint32_t i);
 
-//do_move.c
-void		ft_bust_a_move(t_moves move, t_data *data);
-void		ft_bust_some_moves(t_moves move, t_data *data, uint32_t repeat);
-void		ft_handle_move(t_moves move, t_data *data);
-
 //print_moves.c
 void		ft_print_move_string(t_moves move);
 void		ft_print_moves_queue(t_queue *moves);
+
+//utils_string.c
+int			ft_move_like_atoi(char *str);
+bool		ft_check_overflow(char *str);
+
+//utils_sort.c
+uint32_t	ft_search_from_top(t_stack *stack, uint32_t num);
+bool		ft_rotate_to_top(uint8_t name, t_data *data, uint32_t num);
+bool		ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num);
+uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
+uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
+
+//utils_sort2.c
+bool		ft_is_sorted(t_stack *stack);
+int32_t		ft_count_rot_top(uint32_t num, t_stack *stack);
+int32_t		ft_count_rot_bot(uint32_t num, t_stack *stack);
+
+//terminate.c
+void		ft_terminate(void);
+void		ft_cleanup_and_leave(t_data *data, bool error);
 
 //print_stacks.c
 void		ft_print_stacks(t_data *data);

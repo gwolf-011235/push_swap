@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:13:16 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 10:52:33 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 11:15:09 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,27 @@
 
 # include <stdint.h>
 # include <stdbool.h>
+
+typedef enum e_moves {
+	PA,
+	PB,
+	SA,
+	SB,
+	SS,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+	UNDEFINED = 255
+}	t_moves;
+
+typedef enum e_mode {
+	PRINT,
+	ENQUEUE,
+	SILENT
+}	t_mode;
 
 typedef struct s_stack {
 	uint32_t	size;
@@ -53,6 +74,7 @@ typedef struct s_data {
 	t_store		store;
 	t_queue		moves;
 	t_chunk		*chunks;
+	t_mode		mode;
 }	t_data;
 
 typedef struct s_next {
@@ -62,26 +84,5 @@ typedef struct s_next {
 	int32_t	target;
 	bool	top;
 }	t_next;
-
-typedef enum e_moves {
-	PA,
-	PB,
-	SA,
-	SB,
-	SS,
-	RA,
-	RB,
-	RR,
-	RRA,
-	RRB,
-	RRR,
-	UNDEFINED = 255
-}	t_moves;
-
-typedef enum e_mode {
-	PRINT,
-	ENQUEUE,
-	SILENT
-}	t_mode;
 
 #endif

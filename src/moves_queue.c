@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 08:19:12 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 11:09:06 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 11:28:22 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	ft_print_moves(t_queue *moves)
 {
-	int32_t	value;
+	t_moves	move;
 
 	if (moves->head == NULL)
 		return ;
 	while (moves->head)
 	{
-		value = ft_dequeue(moves);
-		if (value == 255)
+		move = ft_dequeue(moves);
+		if (move == UNDEFINED)
 			return ;
-		ft_print_move_string(value);
+		ft_print_move_string(move);
 	}
 }
 

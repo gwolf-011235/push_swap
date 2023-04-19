@@ -46,6 +46,7 @@ SRC :=	main.c \
 		do_move.c \
 		logic.c \
 		moves.c \
+		moves2.c \
 		moves_queue.c \
 		parse_input.c \
 		prep_input.c \

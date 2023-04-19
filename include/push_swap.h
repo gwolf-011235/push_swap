@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:10:02 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:17:14 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void		ft_double_rotate(t_stack *a, t_stack *b);
 void		ft_double_rev_rotate(t_stack *a, t_stack *b);
 
 //merge_moves.c
-void		ft_print_moves(t_queue *moves);
 void		ft_merge_dupl_moves(t_queue *moves);
 void		ft_merge_yin_and_yang(t_queue *moves,
 				uint8_t yin_mv, uint8_t yang_mv, uint8_t whole);
@@ -176,7 +175,10 @@ void		ft_update_next_move(t_next *move, int32_t cost_sum, uint32_t i);
 void		ft_bust_a_move(t_moves move, t_data *data);
 void		ft_bust_some_moves(t_moves move, t_data *data, uint32_t repeat);
 void		ft_handle_move(t_moves move, t_data *data);
+
+//print_moves.c
 void		ft_print_move_string(t_moves move);
+void		ft_print_moves_queue(t_queue *moves);
 
 //print_stacks.c
 void		ft_print_stacks(t_data *data);

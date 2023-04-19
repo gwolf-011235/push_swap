@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:49:07 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:00:25 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:17:14 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ int	main(int argc, char *argv[])
 		//ft_cleanup_and_leave(&data, true);
 	ft_print_stacks(&data);
 	ft_merge_dupl_moves(&data.moves);
-	ft_print_moves(&data.moves);
+	ft_print_moves_queue(&data.moves);
 	ft_cleanup_and_leave(&data, false);
 }

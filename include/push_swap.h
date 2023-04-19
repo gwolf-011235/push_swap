@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:08:38 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:10:02 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,11 @@ bool		ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num);
 uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
 uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
 
+//utils_sort2.c
+bool		ft_is_sorted(t_stack *stack);
+int32_t		ft_count_rot_top(uint32_t num, t_stack *stack);
+int32_t		ft_count_rot_bot(uint32_t num, t_stack *stack);
+
 //terminate.c
 void		ft_terminate(void);
 void		ft_cleanup_and_leave(t_data *data, bool error);
@@ -161,18 +166,11 @@ void		ft_prep_chunks(t_data *data);
 bool		ft_is_elem_of_chunk(uint32_t num, t_chunk *chunk);
 void		ft_quick_chunk_sort(t_data *data, t_chunk *one, t_chunk *two);
 
-//sort_insertion.c
-int32_t		ft_count_rot_top(uint32_t num, t_stack *stack);
-int32_t		ft_count_rot_bot(uint32_t num, t_stack *stack);
-
 //sort_next_move.c
 t_next		ft_calc_next_move(t_data *data);
 int32_t		ft_calc_insert_cost(uint32_t num, t_stack *stack, t_next *move);
 int32_t		ft_calc_sum_cost(int32_t cost_a, int32_t cost_b);
 void		ft_update_next_move(t_next *move, int32_t cost_sum, uint32_t i);
-
-//logic.c
-bool		ft_is_sorted(t_stack *stack);
 
 //do_move.c
 void		ft_bust_a_move(t_moves move, t_data *data);

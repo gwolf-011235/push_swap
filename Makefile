@@ -44,7 +44,6 @@ ECHO = printf "\033[2K\r[`expr ${HIT_COUNT} '*' 100 / ${HIT_TOTAL}`%%] %s"
 SRC :=	main.c \
 		check_input.c \
 		do_move.c \
-		logic.c \
 		moves.c \
 		moves2.c \
 		moves_queue.c \
@@ -54,9 +53,9 @@ SRC :=	main.c \
 		sort_complex.c \
 		sort_chunks.c \
 		sort_next_move.c \
-		sort_insertion.c \
 		utils_string.c \
 		utils_sort.c \
+		utils_sort2.c \
 		queue.c \
 		terminate.c \
 		print_stacks.c \

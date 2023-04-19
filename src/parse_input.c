@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 09:50:42 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/12 15:38:50 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/15 14:30:28 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	ft_set_div(t_data *data)
 		data->div = 6;
 	else if (data->nums <= 500)
 		data->div = 7;
+	else
+		data->div = 8;
 }
 
 static void	ft_malloc_all_the_things(t_data *data)

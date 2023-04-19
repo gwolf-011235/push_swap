@@ -6,35 +6,13 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:07:55 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 17:21:10 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 11:49:41 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_checker.h"
 
-void	ft_copy_the_move(uint8_t move, t_data *data)
-{
-	if (move == SA)
-		ft_swap(&data->a);
-	else if (move == SB)
-		ft_swap(&data->b);
-	else if (move == PA)
-		ft_push(&data->a, &data->b);
-	else if (move == PB)
-		ft_push(&data->b, &data->a);
-	else if (move == RA)
-		ft_rotate(&data->a);
-	else if (move == RB)
-		ft_rotate(&data->b);
-	else if (move == RRA)
-		ft_rev_rotate(&data->a);
-	else if (move == RRB)
-		ft_rev_rotate(&data->b);
-	else if (move == 255)
-		ft_checker_talks(data, ERROR);
-}
-
-uint8_t	ft_return_move_num(char *string)
+t_moves	ft_return_move_num(char *string)
 {
 	if (ft_strncmp("sa\n", string, 4) == 0)
 		return (SA);
@@ -59,16 +37,13 @@ uint8_t	ft_return_move_num(char *string)
 	else if (ft_strncmp("rrr\n", string, 5) == 0)
 		return (RRR);
 	else
-		return (255);
+		return (UNDEFINED);
 }
 
 void	ft_checker_talks(t_data *data, t_status status)
 {
-	char	buffer[4096];
-
 	if (status == ERROR)
 	{
-		read(0, buffer, 4096);
 		ft_cleanup_and_leave(data, true);
 	}
 	if (status == OK)
@@ -82,41 +57,24 @@ void	ft_checker_talks(t_data *data, t_status status)
 	ft_cleanup_and_leave(data, false);
 }
 
-char	*ft_buffer_next_line(char buffer[5])
-{
-	int32_t	read_count;
-	int32_t	offset;
-
-	ft_memset(buffer, 0, 4);
-	read_count = read(0, buffer, 1);
-	if (read_count == 0)
-		return (NULL);
-	while (read_count < 5)
-	{
-		if (read_count == -1)
-			return (NULL);
-		offset = read_count;
-		if (ft_memchr(buffer, '\n', 4))
-			return (buffer);
-		read_count += read(0, buffer + offset, 1);
-	}
-	return (buffer);
-}
-
 void	ft_check_move_solution(t_data *data)
 {
-	char	buffer[5];
-	uint8_t	move;
+	char	*line;
+	t_moves	move;
 
-	buffer[4] = '\0';
 	while (1)
 	{
-		if (ft_buffer_next_line(buffer) == NULL)
+		line = get_next_line(0);
+		if (!line)
 			break ;
-		move = ft_return_move_num(buffer);
-		ft_copy_the_move(move, data);
+		move = ft_return_move_num(line);
+		free(line);
+		if (move == UNDEFINED)
+			ft_checker_talks(data, ERROR);
+		else
+			ft_bust_a_move(move, data);
 	}
-	if (ft_is_sorted(&data->a))
+	if (ft_is_sorted(&data->a) && data->b.size == 0)
 		ft_checker_talks(data, OK);
 	else
 		ft_checker_talks(data, KO);

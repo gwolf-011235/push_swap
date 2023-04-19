@@ -71,8 +71,10 @@ SRC_CHECKER := 	checker.c \
 				prep_input.c \
 				logic.c \
 				moves.c \
+				moves2.c \
 				utils_string.c \
 				queue.c \
+				do_move.c \
 				terminate.c
 SRCS_CHECKER := $(addprefix $(SRC_DIR)/, $(SRC))
 

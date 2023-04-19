@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:06:06 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 15:46:23 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 11:45:14 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[])
 	if (argc == 1)
 		exit(0);
 	data.nums = argc - 1;
+	data.mode = SILENT;
 	ft_check_input(argc, argv, &data.nums);
 	ft_parse_input(&data, argc, argv);
 	ft_prep_input(&data);

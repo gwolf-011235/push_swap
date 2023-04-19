@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 11:56:07 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:00:25 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ typedef struct s_next {
 	bool	top;
 }	t_next;
 
-
 //check_input.c
 bool		ft_check_input(int argc, char **argv, uint32_t *count);
 
@@ -136,13 +135,6 @@ bool		ft_rotate_to_bottom(uint8_t name, t_data *data, uint32_t num);
 uint32_t	ft_find_higher_neighbor(uint32_t target, t_stack *stack);
 uint32_t	ft_find_lower_neighbor(uint32_t target, t_stack *stack);
 
-//utils_sort2.c
-uint32_t	ft_find_next_above_in_chunk(uint32_t target, t_stack *stack,
-				t_chunk *chunk);
-uint32_t	ft_find_next_below_in_chunk(uint32_t target, t_stack *stack,
-				t_chunk *chunk);
-int32_t		ft_abs(int32_t num);
-
 //terminate.c
 void		ft_terminate(void);
 void		ft_cleanup_and_leave(t_data *data, bool error);
@@ -154,7 +146,7 @@ uint8_t		ft_dequeue(t_queue *q);
 void		ft_killqueue(t_queue *q);
 
 //sort_simple.c
-void		ft_simple_sort(t_data *data);
+void		ft_sort_simple(t_data *data);
 void		ft_sort_two(t_data *data);
 void		ft_sort_three(t_data *data);
 void		ft_sort_four(t_data *data);

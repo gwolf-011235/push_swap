@@ -57,7 +57,6 @@ SRC :=	main.c \
 		sort_insertion.c \
 		utils_string.c \
 		utils_sort.c \
-		utils_sort2.c \
 		queue.c \
 		terminate.c \
 		print_stacks.c \

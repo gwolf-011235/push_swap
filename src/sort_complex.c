@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:18:03 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 11:32:53 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:00:25 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_sort_complex(t_data *data)
 	}
 	if (data->a.size > 3)
 		ft_bust_some_moves(PB, data, data->a.size - 3);
-	ft_simple_sort(data);
+	ft_sort_simple(data);
 	while (data->b.size > 0)
 	{
 		move = ft_calc_next_move(data);

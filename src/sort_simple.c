@@ -6,13 +6,13 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:56:24 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 14:29:20 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:00:25 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_simple_sort(t_data *data)
+void	ft_sort_simple(t_data *data)
 {
 	if (data->a.size == 2)
 		ft_sort_two(data);

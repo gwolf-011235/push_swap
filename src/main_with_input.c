@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:49:07 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 16:49:35 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:00:25 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char *argv[])
 	else if (data.nums <= 5)
 	{
 		ft_printf("Starting simple_sort\n\n");
-		ft_simple_sort(&data);
+		ft_sort_simple(&data);
 	}
 	else
 	{

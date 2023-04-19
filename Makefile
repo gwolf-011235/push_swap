@@ -27,7 +27,7 @@ LIB_FT := -L $(LIB_DIR_FT) -l ft
 
 # compiling
 CC := cc
-CFLAGS = -g
+CFLAGS = -Wall -Werror -Wextra
 COMPILE = $(CC) $(CFLAGS) $(INC)
 
 # targets
@@ -63,7 +63,7 @@ SRC :=	main.c \
 		try_open.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 
-SRC_CHECKER := 	checker_bonus.c \
+SRC_BONUS := 	checker_bonus.c \
 				checker_utils_bonus.c \
 				check_input.c \
 				parse_input.c \
@@ -77,13 +77,14 @@ SRC_CHECKER := 	checker_bonus.c \
 				print_moves.c \
 				queue.c \
 				terminate.c
-SRCS_CHECKER := $(addprefix $(SRC_DIR)/, $(SRC))
+SRCS_BONUS := $(addprefix $(SRC_DIR)/, $(SRC_BONUS))
 
 # objects
 OBJ := $(SRC:.c=.o)
 OBJS := $(addprefix $(OBJ_DIR)/, $(OBJ))
-OBJ_CHECKER := $(SRC_CHECKER:.c=.o)
-OBJS_CHECKER := $(addprefix $(OBJ_DIR)/, $(OBJ_CHECKER))
+
+OBJ_BONUS := $(SRC_BONUS:.c=.o)
+OBJS_BONUS := $(addprefix $(OBJ_DIR)/, $(OBJ_BONUS))
 
 # headers
 HEADER := 	push_swap.h \
@@ -92,22 +93,28 @@ HEADER := 	push_swap.h \
 			prep_input.h
 HEADERS := $(addprefix $(INC_DIR)/, $(HEADER))
 
+HEADER_BONUS :=	push_swap_bonus.h
+HEADERS_BONUS := $(addprefix $(INC_DIR)/, $(HEADER_BONUS))
+
 .PHONY: all, clean, fclean, re, debug, bonus, re_bonus
 .SILENT:
 
-all: CFLAGS = -Wall -Werror -Wextra
-all: clean $(NAME)
+all: $(NAME)
+	echo "$(GREEN)ALL DONE!$(RESET)"
+
+bonus: $(NAME_CHECKER)
 	echo "$(GREEN)ALL DONE!$(RESET)"
 
 $(NAME): $(LIBFT) $(OBJS) $(HEADERS)
 	$(COMPILE) $(OBJS) $(LIB_FT) -o $@
 	echo "$(GREEN)$(NAME) created!$(RESET)"
 
+debug: CFLAGS = -g
 debug: $(NAME)
 	echo "$(GREEN)DEBUG ready!$(RESET)"
 
-$(NAME_CHECKER): $(LIBFT) $(OBJS_CHECKER) $(HEADERS)
-	$(COMPILE) $(OBJS_CHECKER) $(LIB_FT) -o $@
+$(NAME_CHECKER): $(LIBFT) $(OBJS_BONUS) $(HEADERS_BONUS)
+	$(COMPILE) $(OBJS_BONUS) $(LIB_FT) -o $@
 	echo "$(GREEN)$(NAME_CHECKER) created!$(RESET)"
 
 $(OBJ_DIR):
@@ -118,7 +125,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) message
 
 message:
 	printf "$(YELLOW)$(BOLD)compilation$(RESET) [$(BLUE)push_swap$(RESET)]\n"
-
 
 $(LIBFT):
 	printf "$(YELLOW)$(BOLD)compilation$(RESET) [$(BLUE)libft$(RESET)]\n"

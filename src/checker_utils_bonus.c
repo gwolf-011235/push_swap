@@ -6,11 +6,11 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:07:55 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:26:47 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:28:23 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_checker.h"
+#include "push_swap_bonus.h"
 
 t_moves	ft_return_move_num(char *string)
 {

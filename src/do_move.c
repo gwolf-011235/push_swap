@@ -6,13 +6,13 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:12:19 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/14 11:10:59 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 10:44:56 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_bust_some_moves(uint8_t move, t_data *data, uint32_t repeat)
+void	ft_bust_some_moves(t_moves move, t_data *data, uint32_t repeat)
 {
 	while (repeat--)
 	{
@@ -20,7 +20,7 @@ void	ft_bust_some_moves(uint8_t move, t_data *data, uint32_t repeat)
 	}
 }
 
-void	ft_bust_a_move(uint8_t move, t_data *data)
+void	ft_bust_a_move(t_moves move, t_data *data)
 {
 	if (move == SA)
 		ft_swap(&data->a);
@@ -42,7 +42,7 @@ void	ft_bust_a_move(uint8_t move, t_data *data)
 		ft_cleanup_and_leave(data, true);
 }
 
-void	ft_print_move_string(uint8_t move)
+void	ft_print_move_string(t_moves move)
 {
 	if (move == SA)
 		ft_printf("sa\n");

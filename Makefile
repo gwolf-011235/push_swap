@@ -43,7 +43,7 @@ ECHO = printf "\033[2K\r[`expr ${HIT_COUNT} '*' 100 / ${HIT_TOTAL}`%%] %s"
 # source files
 SRC :=	main.c \
 		check_input.c \
-		do_move.c \
+		moves_exec.c \
 		moves.c \
 		moves2.c \
 		moves_queue.c \
@@ -58,6 +58,7 @@ SRC :=	main.c \
 		utils_sort2.c \
 		queue.c \
 		terminate.c \
+		print_moves.c \
 		print_stacks.c \
 		try_open.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))

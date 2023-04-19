@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_move.c                                          :+:      :+:    :+:   */
+/*   moves_exec.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:12:19 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:16:09 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 12:20:02 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_bust_some_moves(t_moves move, t_data *data, uint32_t repeat)
-{
-	while (repeat--)
-	{
-		ft_bust_a_move(move, data);
-	}
-}
 
 void	ft_bust_a_move(t_moves move, t_data *data)
 {
@@ -57,5 +49,13 @@ void	ft_handle_move(t_moves move, t_data *data)
 	{
 		if (!ft_enqueue(&data->moves, move))
 			ft_cleanup_and_leave(data, true);
+	}
+}
+
+void	ft_bust_some_moves(t_moves move, t_data *data, uint32_t repeat)
+{
+	while (repeat--)
+	{
+		ft_bust_a_move(move, data);
 	}
 }

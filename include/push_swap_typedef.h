@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 07:13:16 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/13 07:15:19 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/19 10:52:33 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,26 @@ typedef struct s_next {
 	int32_t	target;
 	bool	top;
 }	t_next;
+
+typedef enum e_moves {
+	PA,
+	PB,
+	SA,
+	SB,
+	SS,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+	UNDEFINED = 255
+}	t_moves;
+
+typedef enum e_mode {
+	PRINT,
+	ENQUEUE,
+	SILENT
+}	t_mode;
 
 #endif

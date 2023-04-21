@@ -28,6 +28,8 @@ LIB_FT := -L $(LIB_DIR_FT) -l ft
 # compiling
 CC := cc
 CFLAGS = -Wall -Werror -Wextra
+BUF_SIZE = 5
+export BUF_SIZE
 COMPILE = $(CC) $(CFLAGS) $(INC)
 
 # targets
@@ -110,7 +112,7 @@ $(NAME): $(LIBFT) $(OBJS) $(HEADERS)
 	echo "$(GREEN)$(NAME) created!$(RESET)"
 
 debug: CFLAGS = -g
-debug: $(NAME)
+debug: $(NAME) $(NAME_CHECKER)
 	echo "$(GREEN)DEBUG ready!$(RESET)"
 
 $(NAME_CHECKER): $(LIBFT) $(OBJS_BONUS) $(HEADERS_BONUS)

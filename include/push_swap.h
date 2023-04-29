@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/19 12:22:35 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/29 12:31:20 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,8 @@ void		ft_print_moves_queue(t_queue *moves);
 
 //utils_string.c
 int			ft_move_like_atoi(char *str);
+int			ft_try_next_num(const char *nptr, long num, int sign);
+int			ft_atoi_modified(const char *nptr);
 bool		ft_check_overflow(char *str);
 
 //utils_sort.c

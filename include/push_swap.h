@@ -6,7 +6,7 @@
 /*   By: gwolf <gwolf@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:04:49 by gwolf             #+#    #+#             */
-/*   Updated: 2023/04/29 12:31:20 by gwolf            ###   ########.fr       */
+/*   Updated: 2023/04/29 12:32:44 by gwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ typedef struct s_chunk {
 	uint32_t	min;
 	uint32_t	max;
 	uint32_t	pushed;
-	uint32_t	bounds[2];
 }	t_chunk;
 
 typedef struct s_data {
